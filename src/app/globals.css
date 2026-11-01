@@ -6,42 +6,65 @@
 
 /*
  * Design tokens — single source of truth for colors, radius, and fonts.
- * Values use oklch for perceptually-uniform theming. `:root` is the light
- * theme; `.dark` overrides for dark mode. The `@theme inline` block below
- * maps these CSS variables onto Tailwind's color/utility namespace so classes
- * like `bg-background`, `text-primary`, `border-border` work.
+ * Values use oklch (converted from the exact Figma hex targets) for
+ * perceptually-uniform theming. `:root` is the light theme; `.dark`
+ * overrides for dark mode (lightness lifted while hue is preserved).
+ * The `@theme inline` block below maps these CSS variables onto Tailwind's
+ * color/utility namespace so classes like `bg-background`, `text-primary`,
+ * `border-border`, `bg-secondary`, `bg-warning` work.
  */
 :root {
   --radius: 0.625rem;
 
   --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  --foreground: oklch(0.21 0.006 285.9); /* #18181b */
 
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
+  --card-foreground: oklch(0.21 0.006 285.9);
 
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.21 0.006 285.9);
 
-  /* Brand primary — teal/emerald tuned for an education platform. */
-  --primary: oklch(0.58 0.13 174);
-  --primary-foreground: oklch(0.985 0 0);
+  /* Brand primary — navy #123458 (Figma). */
+  --primary: oklch(0.321 0.075 252.4); /* #123458 */
+  --primary-foreground: oklch(0.985 0 0); /* #fafafa */
+  --primary-hover: oklch(0.301 0.07 252.4); /* #102f50 */
+  --primary-pressed: oklch(0.277 0.065 252.6); /* #0d2947 */
+  --primary-light: oklch(0.967 0.009 242.8); /* #eff5fa */
+  --primary-light-strong: oklch(0.919 0.022 245.9); /* #d9e6f2 */
 
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
+  /* Secondary — teal #14b8a6 (Figma). */
+  --secondary: oklch(0.704 0.123 182.5); /* #14b8a6 */
+  --secondary-foreground: oklch(0.985 0 0); /* #fafafa */
+  --secondary-hover: oklch(0.65 0.113 183.4); /* #12a596 */
+  --secondary-pressed: oklch(0.585 0.102 182.7); /* #0f8f81 */
+  --secondary-light: oklch(0.984 0.014 180.7); /* #f0fdfa */
+  --secondary-light-strong: oklch(0.953 0.05 180.8); /* #ccfbf1 */
 
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
+  /* Accent — deep teal #0f766e (Figma). */
+  --accent: oklch(0.511 0.086 186.4); /* #0f766e */
+  --accent-foreground: oklch(0.985 0 0); /* #fafafa */
+  --accent-light: oklch(0.953 0.05 180.8); /* #ccfbf1 */
 
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  /* Warning — amber #df900a (Figma). */
+  --warning: oklch(0.717 0.153 70.4); /* #df900a */
+  --warning-foreground: oklch(0.985 0 0); /* #fafafa */
+  --warning-light: oklch(0.962 0.058 95.6); /* #fef3c7 */
 
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.967 0.001 286.4); /* #f4f4f5 */
+  --muted-foreground: oklch(0.712 0.013 286.1); /* #a1a1aa */
 
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.58 0.13 174);
+  /* Error / destructive — red #ef4444 (Figma). */
+  --destructive: oklch(0.637 0.208 25.3); /* #ef4444 */
+  --destructive-foreground: oklch(0.985 0 0); /* #fafafa */
+  --destructive-hover: oklch(0.597 0.196 25.4); /* #dc3d3d */
+  --destructive-pressed: oklch(0.546 0.179 25.4); /* #c33535 */
+  --destructive-light: oklch(0.971 0.013 17.4); /* #fef2f2 */
+  --destructive-light-strong: oklch(0.936 0.031 17.7); /* #fee2e2 */
+
+  --border: oklch(0.92 0.004 286.3); /* #e4e4e7 */
+  --input: oklch(0.611 0.091 248.6); /* filled input accent #5688b8 */
+  --ring: oklch(0.321 0.075 252.4); /* navy primary */
 
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
@@ -50,13 +73,13 @@
   --chart-5: oklch(0.769 0.188 70.08);
 
   --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.58 0.13 174);
+  --sidebar-foreground: oklch(0.21 0.006 285.9);
+  --sidebar-primary: oklch(0.321 0.075 252.4); /* navy primary */
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.58 0.13 174);
+  --sidebar-accent: oklch(0.967 0.001 286.4);
+  --sidebar-accent-foreground: oklch(0.21 0.006 285.9);
+  --sidebar-border: oklch(0.92 0.004 286.3);
+  --sidebar-ring: oklch(0.321 0.075 252.4); /* navy primary */
 }
 
 .dark {
@@ -69,24 +92,46 @@
   --popover: oklch(0.205 0 0);
   --popover-foreground: oklch(0.985 0 0);
 
-  --primary: oklch(0.7 0.13 174);
+  /* Navy lifted for contrast on dark surfaces; hue (~252) preserved. */
+  --primary: oklch(0.62 0.11 252.4);
   --primary-foreground: oklch(0.145 0 0);
+  --primary-hover: oklch(0.68 0.11 252.4);
+  --primary-pressed: oklch(0.56 0.1 252.6);
+  --primary-light: oklch(0.3 0.05 248);
+  --primary-light-strong: oklch(0.38 0.07 247);
 
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
+  /* Teal lifted; hue (~182) preserved. */
+  --secondary: oklch(0.76 0.123 182.5);
+  --secondary-foreground: oklch(0.145 0 0);
+  --secondary-hover: oklch(0.71 0.113 183.4);
+  --secondary-pressed: oklch(0.66 0.102 182.7);
+  --secondary-light: oklch(0.32 0.04 182);
+  --secondary-light-strong: oklch(0.4 0.06 181);
+
+  /* Deep teal lifted; hue (~186) preserved. */
+  --accent: oklch(0.64 0.1 186.4);
+  --accent-foreground: oklch(0.145 0 0);
+  --accent-light: oklch(0.36 0.05 183);
+
+  /* Amber lifted; hue (~70) preserved. */
+  --warning: oklch(0.79 0.153 70.4);
+  --warning-foreground: oklch(0.145 0 0);
+  --warning-light: oklch(0.36 0.06 80);
 
   --muted: oklch(0.269 0 0);
   --muted-foreground: oklch(0.708 0 0);
 
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.985 0 0);
+  /* Red lifted; hue (~25) preserved. */
+  --destructive: oklch(0.704 0.191 25.3);
+  --destructive-foreground: oklch(0.145 0 0);
+  --destructive-hover: oklch(0.66 0.185 25.4);
+  --destructive-pressed: oklch(0.61 0.175 25.4);
+  --destructive-light: oklch(0.3 0.05 20);
+  --destructive-light-strong: oklch(0.38 0.08 20);
 
   --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.7 0.13 174);
+  --input: oklch(0.611 0.091 248.6);
+  --ring: oklch(0.62 0.11 252.4); /* navy primary */
 
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
@@ -96,12 +141,12 @@
 
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.7 0.13 174);
+  --sidebar-primary: oklch(0.62 0.11 252.4); /* navy primary */
   --sidebar-primary-foreground: oklch(0.145 0 0);
   --sidebar-accent: oklch(0.269 0 0);
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.7 0.13 174);
+  --sidebar-ring: oklch(0.62 0.11 252.4); /* navy primary */
 }
 
 @theme inline {
@@ -116,18 +161,35 @@
 
   --color-primary: var(--primary);
   --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-pressed: var(--primary-pressed);
+  --color-primary-light: var(--primary-light);
+  --color-primary-light-strong: var(--primary-light-strong);
 
   --color-secondary: var(--secondary);
   --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary-hover: var(--secondary-hover);
+  --color-secondary-pressed: var(--secondary-pressed);
+  --color-secondary-light: var(--secondary-light);
+  --color-secondary-light-strong: var(--secondary-light-strong);
 
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
 
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  --color-accent-light: var(--accent-light);
+
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-warning-light: var(--warning-light);
 
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
+  --color-destructive-hover: var(--destructive-hover);
+  --color-destructive-pressed: var(--destructive-pressed);
+  --color-destructive-light: var(--destructive-light);
+  --color-destructive-light-strong: var(--destructive-light-strong);
 
   --color-border: var(--border);
   --color-input: var(--input);
@@ -148,13 +210,16 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
-  /* Cairo is loaded in the root layout and exposed as --font-cairo. */
-  --font-sans: var(--font-cairo), ui-sans-serif, system-ui, sans-serif;
+  /* IBM Plex Sans Arabic is loaded in the root layout and exposed as
+     --font-ibm-plex-arabic. */
+  --font-sans:
+    var(--font-ibm-plex-arabic), ui-sans-serif, system-ui, sans-serif;
 
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  /* Figma radius scale: sm=8px, md=12px, lg=16px (base --radius = 10px). */
+  --radius-sm: calc(var(--radius) - 2px); /* 8px */
+  --radius-md: calc(var(--radius) + 2px); /* 12px */
+  --radius-lg: calc(var(--radius) + 6px); /* 16px */
+  --radius-xl: calc(var(--radius) + 10px); /* 20px */
 }
 
 @layer base {

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Cairo } from "next/font/google";
+import { IBM_Plex_Sans_Arabic } from "next/font/google";
 import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 
@@ -13,12 +13,14 @@ import { SkipToContent } from "@/components/shared/skip-to-content";
 import "../globals.css";
 
 /**
- * Arabic-first UI font. Loaded once at the root and exposed as a CSS
- * variable so Tailwind can pick it up as the default sans family.
+ * Arabic-first UI font (IBM Plex Sans Arabic). Loaded once at the root and
+ * exposed as a CSS variable so Tailwind can pick it up as the default sans
+ * family.
  */
-const cairo = Cairo({
-  variable: "--font-cairo",
+const ibmPlexSansArabic = IBM_Plex_Sans_Arabic({
+  variable: "--font-ibm-plex-arabic",
   subsets: ["arabic", "latin"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -64,7 +66,7 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       dir={getDirection(locale)}
-      className={`${cairo.variable} h-full antialiased`}
+      className={`${ibmPlexSansArabic.variable} h-full antialiased`}
       suppressHydrationWarning
     >
       <body className="flex min-h-full flex-col font-sans">
