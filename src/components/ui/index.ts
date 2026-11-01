@@ -18,6 +18,7 @@ export {
 export { Skeleton } from "./skeleton";
 export { Avatar, AvatarImage, AvatarFallback } from "./avatar";
 export { Badge, badgeVariants } from "./badge";
+export { Tag, tagVariants } from "./tags";
 export { Separator } from "./separator";
 export { Tabs, TabsList, TabsTrigger, TabsContent } from "./tabs";
 export {
