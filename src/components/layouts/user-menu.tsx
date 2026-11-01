@@ -31,7 +31,7 @@ export function UserMenu() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon" className="rounded-full">
+        <Button appearance="ghost" size="icon" className="rounded-full">
           <Avatar>
             {user?.avatarUrl ? (
               <AvatarImage src={user.avatarUrl} alt="" />

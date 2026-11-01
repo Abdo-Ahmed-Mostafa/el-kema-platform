@@ -44,7 +44,7 @@ export function LocaleSwitcher() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button
-          variant="ghost"
+          appearance="ghost"
           size="icon"
           aria-label={t("switchLanguage")}
           disabled={isPending}

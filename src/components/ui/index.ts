@@ -1,6 +1,10 @@
 /** Design-system primitives. Import from "@/components/ui". */
 export { Button, buttonVariants } from "./button";
-export { Input } from "./input";
+export { Input, inputVariants } from "./input";
+export { TextArea } from "./textarea";
+export { Checkbox } from "./checkbox";
+export { RadioGroup, RadioGroupItem } from "./radio-group";
+export { Switch } from "./switch";
 export { Label } from "./label";
 export {
   Card,

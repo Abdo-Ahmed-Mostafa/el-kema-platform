@@ -45,7 +45,7 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
         <Button asChild size="lg">
           <Link href={routes.register}>{t("getStarted")}</Link>
         </Button>
-        <Button asChild size="lg" variant="outline">
+        <Button asChild size="lg" appearance="outline">
           <Link href={routes.courses}>{t("browseCourses")}</Link>
         </Button>
       </div>

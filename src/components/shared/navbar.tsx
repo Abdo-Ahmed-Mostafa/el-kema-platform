@@ -56,7 +56,7 @@ export async function Navbar() {
           <ThemeToggle />
 
           <div className="hidden items-center gap-2 md:flex">
-            <Button asChild variant="ghost" size="sm">
+            <Button asChild appearance="ghost" size="sm">
               <Link href={routes.login}>{t("login")}</Link>
             </Button>
             <Button asChild size="sm">
@@ -68,7 +68,7 @@ export async function Navbar() {
           <Sheet>
             <SheetTrigger asChild>
               <Button
-                variant="ghost"
+                appearance="ghost"
                 size="icon"
                 className="md:hidden"
                 aria-label={tc("openMenu")}
@@ -94,7 +94,7 @@ export async function Navbar() {
                 ))}
               </nav>
               <div className="mt-auto flex flex-col gap-2 p-4">
-                <Button asChild variant="outline">
+                <Button asChild appearance="outline">
                   <Link href={routes.login}>{t("login")}</Link>
                 </Button>
                 <Button asChild>

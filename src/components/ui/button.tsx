@@ -5,31 +5,111 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils/cn";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium transition-all [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive disabled:pointer-events-none disabled:bg-muted disabled:text-muted-foreground disabled:border-muted-foreground",
   {
     variants: {
+      // Color type (Figma: Primary / Secondary / Error / Inverse).
       variant: {
-        default:
-          "bg-primary text-primary-foreground shadow-xs hover:bg-primary/90",
-        destructive:
-          "bg-destructive text-destructive-foreground shadow-xs hover:bg-destructive/90 focus-visible:ring-destructive/20 dark:focus-visible:ring-destructive/40",
-        outline:
-          "border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground",
-        secondary:
-          "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
-        ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 hover:underline",
+        primary: "",
+        secondary: "",
+        destructive: "",
+        inverse: "",
       },
+      // Style (Figma: Filled / Outlined / Transparent).
+      appearance: {
+        filled: "border text-primary-foreground",
+        outline: "border bg-transparent",
+        ghost: "bg-transparent",
+      },
+      // Sizes (Figma: Small 8 / Medium 12 / Large 16 padding & radius).
       size: {
-        default: "h-9 px-4 py-2 has-[>svg]:px-3",
-        sm: "h-8 rounded-md gap-1.5 px-3 has-[>svg]:px-2.5",
-        lg: "h-10 rounded-md px-6 has-[>svg]:px-4",
-        icon: "size-9",
+        sm: "h-[34px] rounded-sm px-2 py-2 text-sm",
+        md: "h-[46px] rounded-md px-3 py-3 text-sm",
+        lg: "h-[58px] rounded-lg px-4 py-4 text-sm",
+        icon: "size-[46px] rounded-md",
       },
     },
+    compoundVariants: [
+      // --- Filled ---
+      {
+        variant: "primary",
+        appearance: "filled",
+        class:
+          "bg-primary border-primary-hover hover:bg-primary-hover hover:border-primary-pressed active:bg-primary-pressed active:border-primary-pressed",
+      },
+      {
+        variant: "secondary",
+        appearance: "filled",
+        class:
+          "bg-secondary border-secondary-hover hover:bg-secondary-hover hover:border-secondary-pressed active:bg-secondary-pressed active:border-secondary-pressed",
+      },
+      {
+        variant: "destructive",
+        appearance: "filled",
+        class:
+          "bg-destructive border-destructive-hover hover:bg-destructive-hover hover:border-destructive-pressed active:bg-destructive-pressed active:border-destructive-pressed",
+      },
+      {
+        variant: "inverse",
+        appearance: "filled",
+        class:
+          "bg-primary-foreground border-primary-foreground text-primary hover:bg-primary-light active:bg-primary-light-strong",
+      },
+      // --- Outline ---
+      {
+        variant: "primary",
+        appearance: "outline",
+        class:
+          "border-primary text-primary hover:bg-primary-light active:bg-primary-light-strong",
+      },
+      {
+        variant: "secondary",
+        appearance: "outline",
+        class:
+          "border-secondary text-secondary hover:bg-secondary-light active:bg-secondary-light-strong",
+      },
+      {
+        variant: "destructive",
+        appearance: "outline",
+        class:
+          "border-destructive text-destructive hover:bg-destructive-light active:bg-destructive-light-strong",
+      },
+      {
+        variant: "inverse",
+        appearance: "outline",
+        class:
+          "border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 active:bg-primary-foreground/20",
+      },
+      // --- Ghost (Transparent) ---
+      {
+        variant: "primary",
+        appearance: "ghost",
+        class:
+          "text-primary hover:bg-primary-light active:bg-primary-light-strong",
+      },
+      {
+        variant: "secondary",
+        appearance: "ghost",
+        class:
+          "text-secondary hover:bg-secondary-light active:bg-secondary-light-strong",
+      },
+      {
+        variant: "destructive",
+        appearance: "ghost",
+        class:
+          "text-destructive hover:bg-destructive-light active:bg-destructive-light-strong",
+      },
+      {
+        variant: "inverse",
+        appearance: "ghost",
+        class:
+          "text-primary-foreground hover:bg-primary-foreground/10 active:bg-primary-foreground/20",
+      },
+    ],
     defaultVariants: {
-      variant: "default",
-      size: "default",
+      variant: "primary",
+      appearance: "filled",
+      size: "md",
     },
   },
 );
@@ -37,6 +117,7 @@ const buttonVariants = cva(
 function Button({
   className,
   variant,
+  appearance,
   size,
   asChild = false,
   ...props
@@ -49,7 +130,7 @@ function Button({
   return (
     <Comp
       data-slot="button"
-      className={cn(buttonVariants({ variant, size, className }))}
+      className={cn(buttonVariants({ variant, appearance, size, className }))}
       {...props}
     />
   );

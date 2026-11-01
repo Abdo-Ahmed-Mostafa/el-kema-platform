@@ -26,4 +26,18 @@ describe("Button", () => {
     expect(link).toBeInTheDocument();
     expect(link).toHaveAttribute("href", "https://example.com");
   });
+
+  it("renders a destructive outline variant", () => {
+    render(
+      <Button variant="destructive" appearance="outline">
+        Delete
+      </Button>,
+    );
+    expect(screen.getByRole("button", { name: "Delete" })).toBeInTheDocument();
+  });
+
+  it("renders a large size", () => {
+    render(<Button size="lg">Big</Button>);
+    expect(screen.getByRole("button", { name: "Big" })).toBeInTheDocument();
+  });
 });

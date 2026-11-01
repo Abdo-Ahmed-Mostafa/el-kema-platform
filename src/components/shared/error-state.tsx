@@ -41,7 +41,7 @@ export function ErrorState({
         ) : null}
       </div>
       {onRetry && retryLabel ? (
-        <Button onClick={onRetry} variant="outline">
+        <Button onClick={onRetry} appearance="outline">
           {retryLabel}
         </Button>
       ) : null}
