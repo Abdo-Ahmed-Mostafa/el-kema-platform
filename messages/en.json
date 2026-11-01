@@ -1,0 +1,135 @@
+{
+  "common": {
+    "appName": "El Kema",
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "retry": "Retry",
+    "save": "Save",
+    "cancel": "Cancel",
+    "search": "Search",
+    "readMore": "Read more",
+    "toggleTheme": "Toggle theme",
+    "switchLanguage": "Switch language",
+    "openMenu": "Open menu",
+    "skipToContent": "Skip to content"
+  },
+  "error": {
+    "title": "Something went wrong",
+    "description": "An unexpected error occurred. Please try again.",
+    "retry": "Try again",
+    "globalTitle": "Application error",
+    "globalDescription": "A critical error occurred. Please reload the page.",
+    "reload": "Reload"
+  },
+  "courses": {
+    "title": "Courses",
+    "subtitle": "Browse courses across subjects and levels.",
+    "free": "Free",
+    "empty": "No courses found.",
+    "students": "{count} students",
+    "lessons": "{count} lessons",
+    "hours": "{count}h",
+    "by": "by {name}",
+    "enroll": "Enroll now",
+    "level": {
+      "beginner": "Beginner",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced"
+    }
+  },
+  "teachers": {
+    "title": "Teachers",
+    "subtitle": "Meet the educators behind El Kema.",
+    "empty": "No teachers found.",
+    "coursesCount": "{count} courses",
+    "rating": "{rating} ({count})",
+    "viewProfile": "View profile",
+    "subjects": "Subjects"
+  },
+  "dashboard": {
+    "overview": "Overview",
+    "myCourses": "My courses",
+    "profile": "Profile",
+    "students": "Students",
+    "children": "Children",
+    "welcome": "Welcome back, {name}",
+    "student": {
+      "title": "Student dashboard",
+      "subtitle": "Track your courses and progress."
+    },
+    "teacher": {
+      "title": "Teacher dashboard",
+      "subtitle": "Manage your courses and students."
+    },
+    "parent": {
+      "title": "Parent dashboard",
+      "subtitle": "Follow your children's learning."
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "courses": "Courses",
+    "teachers": "Teachers",
+    "about": "About",
+    "contact": "Contact",
+    "login": "Log in",
+    "register": "Sign up",
+    "dashboard": "Dashboard",
+    "logout": "Log out"
+  },
+  "home": {
+    "heroTitle": "Learn without limits",
+    "heroSubtitle": "Courses, teachers, and tools that help students, teachers, and parents succeed together.",
+    "getStarted": "Get started",
+    "browseCourses": "Browse courses"
+  },
+  "auth": {
+    "loginTitle": "Welcome back",
+    "loginSubtitle": "Log in to continue to your account.",
+    "registerTitle": "Create your account",
+    "registerSubtitle": "Join El Kema and start learning today.",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm password",
+    "role": "I am a",
+    "rememberMe": "Remember me",
+    "forgotPassword": "Forgot password?",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "loginCta": "Log in",
+    "registerCta": "Create account",
+    "roles": {
+      "student": "Student",
+      "teacher": "Teacher",
+      "parent": "Parent"
+    },
+    "validation": {
+      "emailRequired": "Email is required",
+      "emailInvalid": "Enter a valid email address",
+      "passwordRequired": "Password is required",
+      "passwordMin": "Password must be at least 8 characters",
+      "firstNameRequired": "First name is required",
+      "lastNameRequired": "Last name is required",
+      "roleRequired": "Please select a role",
+      "passwordMismatch": "Passwords do not match"
+    },
+    "errors": {
+      "loginFailed": "Login failed. Please check your credentials.",
+      "registerFailed": "Registration failed. Please try again."
+    },
+    "success": {
+      "loggedIn": "Welcome back!",
+      "registered": "Account created successfully!"
+    }
+  },
+  "footer": {
+    "rights": "All rights reserved."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you are looking for doesn't exist or has been moved.",
+    "backHome": "Back to home"
+  }
+}

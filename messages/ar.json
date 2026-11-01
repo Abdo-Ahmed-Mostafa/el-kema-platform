@@ -1,0 +1,135 @@
+{
+  "common": {
+    "appName": "الكيمة",
+    "loading": "جارٍ التحميل...",
+    "error": "حدث خطأ ما",
+    "retry": "إعادة المحاولة",
+    "save": "حفظ",
+    "cancel": "إلغاء",
+    "search": "بحث",
+    "readMore": "اقرأ المزيد",
+    "toggleTheme": "تبديل السمة",
+    "switchLanguage": "تغيير اللغة",
+    "openMenu": "فتح القائمة",
+    "skipToContent": "تخطَّ إلى المحتوى"
+  },
+  "error": {
+    "title": "حدث خطأ ما",
+    "description": "حدث خطأ غير متوقّع. من فضلك حاول مرة أخرى.",
+    "retry": "إعادة المحاولة",
+    "globalTitle": "خطأ في التطبيق",
+    "globalDescription": "حدث خطأ حرِج. من فضلك أعد تحميل الصفحة.",
+    "reload": "إعادة التحميل"
+  },
+  "courses": {
+    "title": "الكورسات",
+    "subtitle": "تصفّح الكورسات عبر المواد والمستويات.",
+    "free": "مجاني",
+    "empty": "لا توجد كورسات.",
+    "students": "{count} طالب",
+    "lessons": "{count} درس",
+    "hours": "{count} ساعة",
+    "by": "بواسطة {name}",
+    "enroll": "اشترك الآن",
+    "level": {
+      "beginner": "مبتدئ",
+      "intermediate": "متوسط",
+      "advanced": "متقدّم"
+    }
+  },
+  "teachers": {
+    "title": "المدرّسون",
+    "subtitle": "تعرّف على المعلّمين في الكيمة.",
+    "empty": "لا يوجد مدرّسون.",
+    "coursesCount": "{count} كورس",
+    "rating": "{rating} ({count})",
+    "viewProfile": "عرض الملف",
+    "subjects": "المواد"
+  },
+  "dashboard": {
+    "overview": "نظرة عامة",
+    "myCourses": "كورساتي",
+    "profile": "الملف الشخصي",
+    "students": "الطلاب",
+    "children": "الأبناء",
+    "welcome": "مرحبًا بعودتك، {name}",
+    "student": {
+      "title": "لوحة الطالب",
+      "subtitle": "تابع كورساتك وتقدّمك."
+    },
+    "teacher": {
+      "title": "لوحة المدرّس",
+      "subtitle": "أدِر كورساتك وطلابك."
+    },
+    "parent": {
+      "title": "لوحة ولي الأمر",
+      "subtitle": "تابع تعلّم أبنائك."
+    }
+  },
+  "nav": {
+    "home": "الرئيسية",
+    "courses": "الكورسات",
+    "teachers": "المدرّسون",
+    "about": "من نحن",
+    "contact": "تواصل معنا",
+    "login": "تسجيل الدخول",
+    "register": "إنشاء حساب",
+    "dashboard": "لوحة التحكم",
+    "logout": "تسجيل الخروج"
+  },
+  "home": {
+    "heroTitle": "تعلّم بلا حدود",
+    "heroSubtitle": "كورسات ومدرّسون وأدوات تساعد الطلاب والمدرّسين وأولياء الأمور على النجاح معًا.",
+    "getStarted": "ابدأ الآن",
+    "browseCourses": "تصفّح الكورسات"
+  },
+  "auth": {
+    "loginTitle": "مرحبًا بعودتك",
+    "loginSubtitle": "سجّل الدخول للمتابعة إلى حسابك.",
+    "registerTitle": "أنشئ حسابك",
+    "registerSubtitle": "انضم إلى الكيمة وابدأ التعلّم اليوم.",
+    "firstName": "الاسم الأول",
+    "lastName": "اسم العائلة",
+    "email": "البريد الإلكتروني",
+    "password": "كلمة المرور",
+    "confirmPassword": "تأكيد كلمة المرور",
+    "role": "أنا",
+    "rememberMe": "تذكّرني",
+    "forgotPassword": "نسيت كلمة المرور؟",
+    "noAccount": "ليس لديك حساب؟",
+    "hasAccount": "لديك حساب بالفعل؟",
+    "loginCta": "تسجيل الدخول",
+    "registerCta": "إنشاء الحساب",
+    "roles": {
+      "student": "طالب",
+      "teacher": "مدرّس",
+      "parent": "ولي أمر"
+    },
+    "validation": {
+      "emailRequired": "البريد الإلكتروني مطلوب",
+      "emailInvalid": "أدخل بريدًا إلكترونيًا صحيحًا",
+      "passwordRequired": "كلمة المرور مطلوبة",
+      "passwordMin": "يجب ألا تقل كلمة المرور عن ٨ أحرف",
+      "firstNameRequired": "الاسم الأول مطلوب",
+      "lastNameRequired": "اسم العائلة مطلوب",
+      "roleRequired": "من فضلك اختر نوع الحساب",
+      "passwordMismatch": "كلمتا المرور غير متطابقتين"
+    },
+    "errors": {
+      "loginFailed": "فشل تسجيل الدخول. تحقّق من بياناتك.",
+      "registerFailed": "فشل إنشاء الحساب. حاول مرة أخرى."
+    },
+    "success": {
+      "loggedIn": "مرحبًا بعودتك!",
+      "registered": "تم إنشاء الحساب بنجاح!"
+    }
+  },
+  "footer": {
+    "rights": "جميع الحقوق محفوظة."
+  },
+  "notFound": {
+    "title": "الصفحة غير موجودة",
+    "description": "الصفحة التي تبحث عنها غير موجودة أو تم نقلها.",
+    "backHome": "العودة للرئيسية"
+  }
+}
