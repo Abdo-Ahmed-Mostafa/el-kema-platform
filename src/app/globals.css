@@ -89,6 +89,13 @@
   --shadow-card: 0 4px 10px 0 rgba(18, 52, 88, 0.12);
   --radius-card-xl: 24px;
   --text-body: oklch(0.44 0.006 286); /* #52525a */
+
+  /* Card Authentication (auth shell) — additive. The auth card surface and
+     border intentionally match --muted (#f4f4f5) and --muted-foreground
+     (#a1a1aa) but are scoped as auth-card tokens so the shell can evolve
+     independently. The 24px card radius reuses --radius-card-xl. */
+  --card-auth-surface: oklch(0.967 0.001 286.4); /* #f4f4f5 */
+  --card-auth-border: oklch(0.712 0.013 286.1); /* #a1a1aa */
 }
 
 .dark {
@@ -161,6 +168,11 @@
   /* Card layer (stage 4B) — body text lifted for dark surfaces; hue
      preserved. Shadow + xlarge radius are brand-fixed, so unchanged here. */
   --text-body: oklch(0.72 0.006 286);
+
+  /* Card Authentication (auth shell) — dark overrides consistent with the
+     muted treatment used across the dark theme. */
+  --card-auth-surface: oklch(0.269 0 0);
+  --card-auth-border: oklch(0.708 0 0);
 }
 
 @theme inline {
@@ -241,6 +253,11 @@
   --shadow-card: var(--shadow-card);
   --radius-card-xl: var(--radius-card-xl);
   --color-text-body: var(--text-body);
+
+  /* Card Authentication (auth shell) — exposes `bg-card-auth-surface` and
+     `border-card-auth-border` utilities. */
+  --color-card-auth-surface: var(--card-auth-surface);
+  --color-card-auth-border: var(--card-auth-border);
 }
 
 @layer base {

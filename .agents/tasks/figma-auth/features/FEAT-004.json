@@ -1,0 +1,24 @@
+{
+  "id": "FEAT-004",
+  "type": "feat",
+  "description": "FORGOT-PASSWORD screen reworked to the shared auth shell, composed consistently with Login (Figma has no dedicated node, so compose from the same shell + a single email field + submit + back-to-login link). Depends on FEAT-001 (shell/tokens/i18n) and should follow FEAT-002 for visual consistency with Login.",
+  "status": "pending",
+  "steps": [
+    "Read context.json, this file, and the Login section of figma-auth.md for the field/label visual pattern to mirror.",
+    "Add forgot-password copy to messages/ar.json + en.json (in sync) under the auth namespace: forgotHeading (e.g. 'نسيت كلمة المرور؟'), forgotSubheading (a short instruction consistent with Login's subtitle tone), forgotSubmit (e.g. 'إرسال رابط الاستعادة'), backToLogin (reuse t('loginCta') if suitable). Sensible English equivalents; keep key sets identical.",
+    "Create a client form src/features/auth/components/forgot-password-form.tsx: 'use client', useForm over a minimal email schema (either add createForgotPasswordSchema(t) to src/features/auth/schemas.ts reusing the emailRequired/emailInvalid messages, or inline a z.object with email). Render a single email field matching the Login field pattern (Label + required '*', Input md with EmailIcon + placeholder, error <p>) and a full-width primary submit Button. The submit handler is a typed placeholder (no auth forgot-password API endpoint exists in src/features/auth/api.ts) — do NOT fabricate a backend call; it may show a success toast and/or no-op. Export ForgotPasswordForm from src/features/auth/index.ts without removing existing exports. If a schema factory is added, export it too and add a case to schemas.test.ts.",
+    "Edit src/app/[locale]/(auth)/forgot-password/page.tsx: remove the Card usage; render inside the shell card <LogoMark size={144} /> + heading block (t('forgotHeading') title + t('forgotSubheading') subtitle, same classes as Login) + <ForgotPasswordForm /> + a centered secondary underlined Link back to routes.login. Keep setRequestLocale.",
+    "Visually confirm consistency with the Login screen (same shell, card, field styling, spacing) in RTL + light/dark; use get_screenshot on the Login node 47:3798 as the styling reference."
+  ],
+  "acceptance_criteria": [
+    "forgot-password/page.tsx renders inside the shell (no Card) with logo + heading + email form + back-to-login link, visually consistent with Login.",
+    "No fabricated backend call; the submit handler is typed and does not introduce a behavior regression.",
+    "ForgotPasswordForm is exported from src/features/auth/index.ts and existing exports remain intact; if a forgot-password schema was added it is covered by schemas.test.ts.",
+    "messages ar/en auth key sets stay identical."
+  ],
+  "verification": [
+    "From repo root: npm run typegen ; npm run typecheck ; npm run lint ; npm run test ; npm run build — all pass with 0 errors."
+  ],
+  "blocked_reason": null,
+  "findings": ""
+}
