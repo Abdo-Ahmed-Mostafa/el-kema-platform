@@ -144,5 +144,49 @@
     "title": "Page not found",
     "description": "The page you are looking for doesn't exist or has been moved.",
     "backHome": "Back to home"
+  },
+  "organisms": {
+    "cta": "Get started",
+    "learnMore": "Learn more",
+    "readMore": "Read more",
+    "plans": {
+      "features": "Features",
+      "popular": "Most popular",
+      "choose": "Choose plan"
+    },
+    "ourWork": {
+      "readMore": "Read more"
+    },
+    "whyToStart": {
+      "title": "Why start now"
+    },
+    "whyElqimah": {
+      "title": "Why El Kema"
+    },
+    "trust": {
+      "title": "Trusted by learners everywhere"
+    },
+    "instructor": {
+      "cta": "View profile"
+    },
+    "suggestion": {
+      "cta": "Explore"
+    },
+    "howToStart": {
+      "title": "How to start",
+      "step": "Step {number}"
+    },
+    "levels": {
+      "start": "Start now",
+      "details": "Level details"
+    },
+    "leaderboard": {
+      "subjectScore": "Subject score",
+      "totalScore": "Total score",
+      "rank": "Rank {rank}"
+    },
+    "faq": {
+      "title": "Frequently asked questions"
+    }
   }
 }

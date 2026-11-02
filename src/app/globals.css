@@ -80,6 +80,14 @@
   --sidebar-accent-foreground: oklch(0.21 0.006 285.9);
   --sidebar-border: oklch(0.92 0.004 286.3);
   --sidebar-ring: oklch(0.321 0.075 252.4); /* navy primary */
+
+  /* Card layer (stage 4B) — additive. Shadow is a fixed brand value
+     (Figma "Card Shadow": navy #123458 @ 12% alpha, offset 0 4px, blur 10px,
+     spread 0), so it stays identical in dark. Body text (#52525a) and the
+     xlarge card radius (24px) are new card-scale tokens. */
+  --shadow-card: 0 4px 10px 0 rgba(18, 52, 88, 0.12);
+  --radius-card-xl: 24px;
+  --text-body: oklch(0.44 0.006 286); /* #52525a */
 }
 
 .dark {
@@ -147,6 +155,10 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.62 0.11 252.4); /* navy primary */
+
+  /* Card layer (stage 4B) — body text lifted for dark surfaces; hue
+     preserved. Shadow + xlarge radius are brand-fixed, so unchanged here. */
+  --text-body: oklch(0.72 0.006 286);
 }
 
 @theme inline {
@@ -220,6 +232,12 @@
   --radius-md: calc(var(--radius) + 2px); /* 12px */
   --radius-lg: calc(var(--radius) + 6px); /* 16px */
   --radius-xl: calc(var(--radius) + 10px); /* 20px */
+
+  /* Card layer (stage 4B) — exposes `shadow-card`, `rounded-card-xl`,
+     and `text-body` utilities. */
+  --shadow-card: var(--shadow-card);
+  --radius-card-xl: var(--radius-card-xl);
+  --color-text-body: var(--text-body);
 }
 
 @layer base {

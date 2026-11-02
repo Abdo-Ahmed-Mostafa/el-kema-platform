@@ -36,11 +36,11 @@ export async function Navbar() {
   ];
 
   return (
-    // Figma 451:1151 — surface #fafafa (bg-card), drop-shadow 0 4px 4px #00000040,
-    // padding x24/y12 (px-6 py-3), justify-between. Keep sticky + backdrop.
-    // NOTE: the shadow is a raw rgba (alpha 0.25 = #00000040) because no shadow
-    // token exists yet — candidate for a future --shadow-* token, not a drift.
-    <header className="bg-card/80 sticky top-0 z-40 w-full shadow-[0_4px_4px_rgba(0,0,0,0.25)] backdrop-blur-sm">
+    // Figma 451:1151 — surface #fafafa (bg-card), padding x24/y12 (px-6 py-3),
+    // justify-between. Keep sticky + backdrop.
+    // NOTE: uses the shared `shadow-card` token (--shadow-card in globals.css:
+    // navy #123458 @ 12%, offset 0 4px, blur 10px) added in stage 4B.
+    <header className="bg-card/80 shadow-card sticky top-0 z-40 w-full backdrop-blur-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-3">
         <div className="flex items-center gap-8">
           <Logo />

@@ -144,5 +144,49 @@
     "title": "الصفحة غير موجودة",
     "description": "الصفحة التي تبحث عنها غير موجودة أو تم نقلها.",
     "backHome": "العودة للرئيسية"
+  },
+  "organisms": {
+    "cta": "ابدأ الآن",
+    "learnMore": "اعرف المزيد",
+    "readMore": "اقرأ المزيد",
+    "plans": {
+      "features": "المميزات",
+      "popular": "الأكثر شيوعًا",
+      "choose": "اختر الخطة"
+    },
+    "ourWork": {
+      "readMore": "اقرأ المزيد"
+    },
+    "whyToStart": {
+      "title": "لماذا تبدأ الآن"
+    },
+    "whyElqimah": {
+      "title": "لماذا الكيمة"
+    },
+    "trust": {
+      "title": "موضع ثقة المتعلّمين في كل مكان"
+    },
+    "instructor": {
+      "cta": "عرض الملف"
+    },
+    "suggestion": {
+      "cta": "استكشف"
+    },
+    "howToStart": {
+      "title": "كيف تبدأ",
+      "step": "خطوة {number}"
+    },
+    "levels": {
+      "start": "ابدأ الآن",
+      "details": "تفاصيل المستوى"
+    },
+    "leaderboard": {
+      "subjectScore": "درجة المادة",
+      "totalScore": "المجموع الكلي",
+      "rank": "المركز {rank}"
+    },
+    "faq": {
+      "title": "الأسئلة الشائعة"
+    }
   }
 }
