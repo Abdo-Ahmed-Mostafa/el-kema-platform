@@ -11,6 +11,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { SearchBar } from "@/components/molecules";
 import { Logo } from "./logo";
 import { ThemeToggle } from "./theme-toggle";
 import { LocaleSwitcher } from "./locale-switcher";
@@ -34,8 +35,10 @@ export async function Navbar() {
   ];
 
   return (
-    <header className="bg-background/80 sticky top-0 z-40 w-full border-b backdrop-blur-sm">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
+    // Figma 451:1151 — surface #fafafa (bg-card), drop-shadow 0 4px 4px #00000040,
+    // padding x24/y12 (px-6 py-3), justify-between. Keep sticky + backdrop.
+    <header className="bg-card/80 sticky top-0 z-40 w-full shadow-[0_4px_4px_rgba(0,0,0,0.25)] backdrop-blur-sm">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-3">
         <div className="flex items-center gap-8">
           <Logo />
           <nav className="hidden items-center gap-6 md:flex">
@@ -43,12 +46,19 @@ export async function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-muted-foreground hover:text-foreground text-sm font-medium transition-colors"
+                // Figma label states Default/Hover/Pressed — paragraph-md 18/28
+                // medium (arbitrary; tokens unchanged). aria-current → pressed.
+                className="text-[18px] leading-7 font-medium text-muted-foreground transition-colors hover:text-primary aria-[current=page]:text-primary-pressed"
               >
                 {link.label}
               </Link>
             ))}
           </nav>
+        </div>
+
+        {/* Search molecule (Figma shows search in the nav row). */}
+        <div className="hidden min-w-0 flex-1 justify-center lg:flex">
+          <SearchBar size="sm" className="max-w-xs" />
         </div>
 
         <div className="flex items-center gap-1">
