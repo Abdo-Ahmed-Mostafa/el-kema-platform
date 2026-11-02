@@ -1,0 +1,7 @@
+{
+  "task_id": "task-stage-4a-molecules",
+  "task_description": "Stage 4A: convert the El-Kema Figma design system molecules into code. Build 9 molecules by composing existing atoms (Button, Input, Label, Select, Card) and the @/components/icons module, plus reconcile the existing shared Navbar to Figma section 451:1352 while keeping its public API, next-intl strings, locale-switcher, theme-toggle, and Logo intact. Do NOT change tokens, fonts, or atom styling. Full a11y, RTL+LTR via logical properties, light+dark, all user-facing strings via next-intl (ar.json + en.json in sync). No new dependencies (native accordion; Eye/EyeOff from lucide-react). Molecules live in a new src/components/molecules folder with its own barrel.",
+  "status": "pending",
+  "feature_order": ["FEAT-001", "FEAT-002", "FEAT-003"],
+  "blocked_reason": null
+}

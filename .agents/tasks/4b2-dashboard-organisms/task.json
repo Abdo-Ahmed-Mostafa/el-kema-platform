@@ -1,0 +1,7 @@
+{
+  "task_id": "task-4b2-dashboard-organisms",
+  "task_description": "Stage 4B-2 of the El-Kema Figma design-system conversion: build the dashboard organisms (metric/subscription/highlight cards, activity feed, custom SVG charts, payment rows, filters, report table, and the additional distinct dashboard cards) under src/components/organisms, reconcile the existing dashboard sidebar/header layout to the Figma Side Menu/Header while preserving their public API and config/dashboard-nav.ts usage. Compose existing atoms/molecules/icons/organisms; no duplicated styling; no new charting dependency; prop-driven + next-intl (synced ar/en); full a11y + RTL/LTR via logical properties; light+dark. Library + tests only (no app-page adoption). Do NOT alter the core palette or font. Verify typegen/typecheck/lint/test(keep 79 green)/build at zero errors; commit to main.",
+  "status": "pending",
+  "feature_order": ["FEAT-001", "FEAT-002", "FEAT-003", "FEAT-004", "FEAT-005"],
+  "blocked_reason": null
+}

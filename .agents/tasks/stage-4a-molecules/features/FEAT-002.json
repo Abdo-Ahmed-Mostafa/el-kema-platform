@@ -1,0 +1,27 @@
+{
+  "id": "FEAT-002",
+  "type": "feat",
+  "description": "Build the 3 molecules with structural/SVG nuance pulled from Figma: FAQ Accordion (accessible native, NO new dep), Search (SearchButton 48px + SearchBar reusing the Input atom), and Progress Ring (accessible SVG, role=progressbar). Independent of FEAT-001's components but extends the same src/components/molecules/index.ts barrel and `molecules` i18n namespace it created, so run after FEAT-001. The Search molecule is consumed by the navbar in FEAT-003, so it must land here first.",
+  "status": "completed",
+  "steps": [
+    "Extend messages/en.json + messages/ar.json `molecules` namespace (keep both in sync) with: searchPlaceholder, search, progress (e.g. '{value}% complete' / '{value}% مكتمل'), expand, collapse.",
+    "FAQ Accordion: src/components/molecules/accordion.tsx ('use client'), accessible NATIVE disclosure — do NOT add @radix-ui/react-accordion. Export Accordion (container; support single or multiple open) + AccordionItem (header <button> with aria-expanded + aria-controls; panel <div role='region'> with id + aria-labelledby). Question text-[20px] leading-8 font-medium (paragraph-lg, arbitrary — tokens unchanged). Body text-sm text-[#52525a] dark:text-zinc-400 (paragraph-xsm; #52525a is not a token, use arbitrary with a Figma-reference comment). Surface bg-card, border border-border, rounded-lg; hover:bg-primary-light tint. Chevron DownArrowIcon from @/components/icons rotating via data-state=open (rotate-180 transition). Keyboard Enter/Space toggles; focus-visible ring token. Re-export from barrel.",
+    "Search: src/components/molecules/search.tsx. Export SearchButton (48px icon button reusing Button size='icon' sized to size-12, SearchIcon from @/components/icons, i18n aria-label=search; 'use client' only if it owns state, otherwise keep it a styled button) and SearchBar (reuse the Input atom via startIcon={<SearchIcon/>}; size prop Large -> h-[50px] / Small -> h-[42px] to match Figma 233x50 / 233x42; Input already provides hover:border-primary hover:bg-primary-light tint and ps-9 logical padding). Placeholder via i18n searchPlaceholder. Re-export from barrel.",
+    "Progress Ring: src/components/molecules/progress-ring.tsx ('use client' if value animates/changes, else a plain component). Accessible circular SVG: outer box size-[205px], inner ring diameter ~152 (Figma 640:4725 geometry) — compute r and strokeWidth to match; two concentric <circle>s: track stroke-muted, progress stroke-primary, strokeLinecap='round', strokeDasharray/strokeDashoffset from value 0-100, rotated -90deg. Center shows the value; visible number text-[20px] leading-8 font-semibold (paragraph-lg per the molecules doc; add a comment noting Figma H2 48/60 was adapted down to the doc's paragraph-lg). Wrapper role='progressbar' with aria-valuenow / aria-valuemin={0} / aria-valuemax={100} and an i18n aria-label (progress). Support two visual states via a state/variant prop differing by fill, as in Figma. Draw with SVG only — never reference the expiring Figma asset URLs. Re-export from barrel.",
+    "Add co-located tests: accordion.test.tsx (toggles aria-expanded and reveals/hides the panel on click and Enter/Space), search.test.tsx (SearchBar exposes a searchbox/textbox role with the i18n placeholder; SearchButton exposes the search aria-label), progress-ring.test.tsx (role='progressbar' present with correct aria-valuenow/min/max for a given value)."
+  ],
+  "acceptance_criteria": [
+    "Accordion is native (no @radix-ui/react-accordion in package.json), header toggles aria-expanded, panel is a labelled region, chevron rotates via data-state.",
+    "SearchBar reuses the Input atom (does not re-implement input styling) and renders the search icon + i18n placeholder; SearchButton is a 48px icon button with the search aria-label.",
+    "ProgressRing renders an SVG with role='progressbar' and aria-valuenow/min/max, primary stroke on a muted track, centered value, two states; uses no external image.",
+    "All three are re-exported from src/components/molecules/index.ts; new i18n keys present in both ar.json and en.json with matching key sets.",
+    "No new dependency added to package.json."
+  ],
+  "verification": [
+    "npx vitest run src/components/molecules (accordion/search/progress-ring tests pass alongside FEAT-001 tests)",
+    "npm run typecheck (zero errors)",
+    "npm run lint (zero errors)"
+  ],
+  "blocked_reason": null,
+  "findings": ""
+}
