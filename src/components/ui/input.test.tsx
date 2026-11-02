@@ -15,8 +15,8 @@ describe("Input", () => {
     render(<Input filled aria-label="Name" />);
     const input = screen.getByLabelText("Name");
     expect(input).toHaveAttribute("data-state", "filled");
-    // #5688b8 -> --input accent surface, #fafafa -> primary-foreground text.
-    expect(input).toHaveClass("bg-input");
+    // #5688b8 -> --input-filled accent surface, #fafafa -> primary-foreground text.
+    expect(input).toHaveClass("bg-input-filled");
     expect(input).toHaveClass("text-primary-foreground");
   });
 

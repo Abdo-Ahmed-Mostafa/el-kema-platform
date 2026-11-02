@@ -16,9 +16,9 @@ const inputVariants = cva(
         // Default resting surface; hover lifts to the primary-light tint.
         default:
           "border-border bg-muted text-foreground placeholder:text-muted-foreground selection:bg-primary selection:text-primary-foreground hover:border-primary hover:bg-primary-light",
-        // Filled: accent surface (#5688b8 -> --input) with inverse text (#fafafa).
+        // Filled: accent surface (#5688b8 -> --input-filled) with inverse text (#fafafa).
         filled:
-          "border-input bg-input text-primary-foreground placeholder:text-primary-foreground/70 selection:bg-primary-foreground selection:text-primary",
+          "border-input-filled bg-input-filled text-primary-foreground placeholder:text-primary-foreground/70 selection:bg-primary-foreground selection:text-primary",
       },
     },
     defaultVariants: {
