@@ -5,13 +5,7 @@ import { hasLocale } from "next-intl";
 import { Link } from "@/lib/i18n/navigation";
 import { routes } from "@/config/routes";
 import { routing } from "@/lib/i18n/routing";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { LogoMark } from "@/components/icons";
 import { LoginForm } from "@/features/auth";
 import { buildMetadata } from "@/lib/seo";
 
@@ -40,23 +34,26 @@ export default async function LoginPage({ params }: PageProps<"/[locale]">) {
   const t = await getTranslations("auth");
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle className="text-2xl">{t("loginTitle")}</CardTitle>
-        <CardDescription>{t("loginSubtitle")}</CardDescription>
-      </CardHeader>
-      <CardContent className="flex flex-col gap-6">
-        <LoginForm />
-        <p className="text-muted-foreground text-center text-sm">
-          {t("noAccount")}{" "}
-          <Link
-            href={routes.register}
-            className="text-primary font-medium hover:underline"
-          >
-            {t("registerCta")}
-          </Link>
+    <>
+      <LogoMark size={144} />
+
+      <div className="flex flex-col items-center gap-3 text-center">
+        <h1 className="text-[20px] leading-8 font-semibold text-foreground">
+          {t("loginHeading")}
+        </h1>
+        <p className="text-sm leading-5 text-text-body">
+          {t("loginSubheading")}
         </p>
-      </CardContent>
-    </Card>
+      </div>
+
+      <LoginForm />
+
+      <p className="text-center text-sm text-foreground">
+        {t("registerFooterPrefix")}{" "}
+        <Link href={routes.register} className="text-secondary underline">
+          {t("registerFooterCta")}
+        </Link>
+      </p>
+    </>
   );
 }
