@@ -216,6 +216,13 @@
       },
       "filter": {
         "all": "الكل"
+      },
+      "payment": {
+        "filterLabel": "طرق الدفع",
+        "vodafone": "فودافون كاش",
+        "orange": "أورانج كاش",
+        "visa": "فيزا",
+        "mastercard": "ماستركارد"
       }
     },
     "faq": {

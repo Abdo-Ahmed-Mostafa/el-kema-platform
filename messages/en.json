@@ -216,6 +216,13 @@
       },
       "filter": {
         "all": "All"
+      },
+      "payment": {
+        "filterLabel": "Payment methods",
+        "vodafone": "Vodafone Cash",
+        "orange": "Orange Cash",
+        "visa": "Visa",
+        "mastercard": "Mastercard"
       }
     },
     "faq": {
