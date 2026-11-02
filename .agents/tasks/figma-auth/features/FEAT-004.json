@@ -2,7 +2,7 @@
   "id": "FEAT-004",
   "type": "feat",
   "description": "FORGOT-PASSWORD screen reworked to the shared auth shell, composed consistently with Login (Figma has no dedicated node, so compose from the same shell + a single email field + submit + back-to-login link). Depends on FEAT-001 (shell/tokens/i18n) and should follow FEAT-002 for visual consistency with Login.",
-  "status": "pending",
+  "status": "completed",
   "steps": [
     "Read context.json, this file, and the Login section of figma-auth.md for the field/label visual pattern to mirror.",
     "Add forgot-password copy to messages/ar.json + en.json (in sync) under the auth namespace: forgotHeading (e.g. 'نسيت كلمة المرور؟'), forgotSubheading (a short instruction consistent with Login's subtitle tone), forgotSubmit (e.g. 'إرسال رابط الاستعادة'), backToLogin (reuse t('loginCta') if suitable). Sensible English equivalents; keep key sets identical.",
@@ -20,5 +20,5 @@
     "From repo root: npm run typegen ; npm run typecheck ; npm run lint ; npm run test ; npm run build — all pass with 0 errors."
   ],
   "blocked_reason": null,
-  "findings": ""
+  "findings": "Reworked forgot-password to the shared auth shell, composed to mirror Login exactly (LogoMark size=144, centered heading block with identical classes text-[20px] leading-8 font-semibold text-foreground / text-sm leading-5 text-text-body, form, then centered secondary underlined back-to-login Link). Figma has no dedicated node, so styling was mirrored from Login (node 47:3798) as instructed; no new visual drift possible since the same tokens/classes are reused. Added createForgotPasswordSchema(t) to schemas.ts reusing emailRequired/emailInvalid messages, plus ForgotPasswordSchema/ForgotPasswordValues types. New client component src/features/auth/components/forgot-password-form.tsx renders a single email field matching the Login field pattern (Label + required '*', Input size=md with EmailIcon + placeholder, error <p>) and a full-width primary submit Button using t('forgotSubmit'). Submit handler is a typed no-op placeholder (handleSubmit(() => {}) over useForm<ForgotPasswordValues>) — no fabricated backend call, since src/features/auth/api.ts has no forgot-password endpoint. Exported ForgotPasswordForm, createForgotPasswordSchema and ForgotPasswordValues from src/features/auth/index.ts; all existing exports kept intact. Added messages/ar.json + en.json keys under auth (in sync): forgotHeading, forgotSubheading, forgotSubmit, backToLogin. Added a 'forgot-password schema' describe block with 3 cases to schemas.test.ts. Page keeps setRequestLocale and now also has generateMetadata via buildMetadata for parity with Login. Verification from repo root all passed with 0 errors: npm run typegen, npm run typecheck, npm run lint (0 errors/0 warnings), npm run test (37 files, 149 tests passed), npm run build (success)."
 }

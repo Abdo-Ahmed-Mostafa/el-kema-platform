@@ -1,6 +1,10 @@
 import { describe, it, expect } from "vitest";
 
-import { createLoginSchema, createRegisterSchema } from "./schemas";
+import {
+  createLoginSchema,
+  createRegisterSchema,
+  createForgotPasswordSchema,
+} from "./schemas";
 
 // Identity translator: returns the message key so we can assert which rule fired.
 const t = (key: string) => key;
@@ -71,5 +75,21 @@ describe("register schema", () => {
   it("rejects an unknown role", () => {
     const result = schema.safeParse({ ...base, role: "admin" });
     expect(result.success).toBe(false);
+  });
+});
+
+describe("forgot-password schema", () => {
+  const schema = createForgotPasswordSchema(t);
+
+  it("accepts a valid email", () => {
+    expect(schema.safeParse({ email: "user@example.com" }).success).toBe(true);
+  });
+
+  it("rejects an empty email", () => {
+    expect(schema.safeParse({ email: "" }).success).toBe(false);
+  });
+
+  it("rejects an invalid email", () => {
+    expect(schema.safeParse({ email: "not-an-email" }).success).toBe(false);
   });
 });

@@ -46,8 +46,22 @@ export function createRegisterSchema(t: Translator) {
   });
 }
 
+/**
+ * Forgot-password form schema — a single email field, reusing the same
+ * emailRequired/emailInvalid validation messages as login.
+ */
+export function createForgotPasswordSchema(t: Translator) {
+  return z.object({
+    email: z.string().min(1, t("emailRequired")).email(t("emailInvalid")),
+  });
+}
+
 export type LoginSchema = ReturnType<typeof createLoginSchema>;
 export type RegisterSchema = ReturnType<typeof createRegisterSchema>;
+export type ForgotPasswordSchema = ReturnType<
+  typeof createForgotPasswordSchema
+>;
 
 export type LoginValues = z.infer<LoginSchema>;
 export type RegisterValues = z.infer<RegisterSchema>;
+export type ForgotPasswordValues = z.infer<ForgotPasswordSchema>;
