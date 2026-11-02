@@ -8,12 +8,14 @@ export interface LoginPayload {
   rememberMe?: boolean;
 }
 
-/** Payload sent to the register endpoint. */
+/** Payload sent to the register endpoint (Figma general sign-up flow). */
 export interface RegisterPayload {
   firstName: string;
+  secondName: string;
+  thirdName: string;
   lastName: string;
-  email: string;
-  password: string;
+  phone: string;
+  nationalId: string;
   role: Role;
 }
 

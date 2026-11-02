@@ -18,23 +18,32 @@ export function createLoginSchema(t: Translator) {
   });
 }
 
-/** Registration form schema with role selection and password confirmation. */
+/**
+ * Registration form schema — matches the Figma general sign-up flow
+ * (nodes 89:4922 + 221:1217): four Arabic name parts, Egyptian mobile and
+ * national-id, and a role selection. There is no email/password on these
+ * screens, so none is collected here.
+ */
 export function createRegisterSchema(t: Translator) {
-  return z
-    .object({
-      firstName: z.string().min(1, t("firstNameRequired")),
-      lastName: z.string().min(1, t("lastNameRequired")),
-      email: z.string().min(1, t("emailRequired")).email(t("emailInvalid")),
-      password: z.string().min(8, t("passwordMin")),
-      confirmPassword: z.string().min(1, t("passwordRequired")),
-      role: z.enum(roleList as [Role, ...Role[]], {
-        message: t("roleRequired"),
-      }),
-    })
-    .refine((data) => data.password === data.confirmPassword, {
-      message: t("passwordMismatch"),
-      path: ["confirmPassword"],
-    });
+  return z.object({
+    firstName: z.string().min(1, t("firstNameRequired")),
+    secondName: z.string().min(1, t("secondNameRequired")),
+    thirdName: z.string().min(1, t("thirdNameRequired")),
+    lastName: z.string().min(1, t("lastNameRequired")),
+    // Egyptian mobile: 11 digits starting 01 (optionally +20 / 0020 prefix).
+    phone: z
+      .string()
+      .min(1, t("phoneRequired"))
+      .regex(/^(?:\+20|0020|0)?1[0125]\d{8}$/, t("phoneInvalid")),
+    // Egyptian national id: exactly 14 digits.
+    nationalId: z
+      .string()
+      .min(1, t("nationalIdRequired"))
+      .regex(/^\d{14}$/, t("nationalIdInvalid")),
+    role: z.enum(roleList as [Role, ...Role[]], {
+      message: t("roleRequired"),
+    }),
+  });
 }
 
 export type LoginSchema = ReturnType<typeof createLoginSchema>;

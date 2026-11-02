@@ -41,10 +41,11 @@ describe("register schema", () => {
 
   const base = {
     firstName: "Sara",
+    secondName: "Ahmed",
+    thirdName: "Mahmoud",
     lastName: "Hassan",
-    email: "sara@example.com",
-    password: "password123",
-    confirmPassword: "password123",
+    phone: "01012345678",
+    nationalId: "29801011234567",
     role: "student" as const,
   };
 
@@ -52,18 +53,19 @@ describe("register schema", () => {
     expect(schema.safeParse(base).success).toBe(true);
   });
 
-  it("rejects mismatched passwords", () => {
-    const result = schema.safeParse({ ...base, confirmPassword: "different" });
-    expect(result.success).toBe(false);
+  it("requires every name part", () => {
+    expect(schema.safeParse({ ...base, secondName: "" }).success).toBe(false);
+    expect(schema.safeParse({ ...base, thirdName: "" }).success).toBe(false);
   });
 
-  it("rejects a short password", () => {
-    const result = schema.safeParse({
-      ...base,
-      password: "123",
-      confirmPassword: "123",
-    });
-    expect(result.success).toBe(false);
+  it("rejects an invalid mobile number", () => {
+    expect(schema.safeParse({ ...base, phone: "12345" }).success).toBe(false);
+  });
+
+  it("rejects a national id that is not 14 digits", () => {
+    expect(schema.safeParse({ ...base, nationalId: "123" }).success).toBe(
+      false,
+    );
   });
 
   it("rejects an unknown role", () => {

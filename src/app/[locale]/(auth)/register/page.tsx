@@ -5,13 +5,7 @@ import { hasLocale } from "next-intl";
 import { Link } from "@/lib/i18n/navigation";
 import { routes } from "@/config/routes";
 import { routing } from "@/lib/i18n/routing";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { LogoMark } from "@/components/icons";
 import { RegisterForm } from "@/features/auth";
 import { buildMetadata } from "@/lib/seo";
 
@@ -40,23 +34,26 @@ export default async function RegisterPage({ params }: PageProps<"/[locale]">) {
   const t = await getTranslations("auth");
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle className="text-2xl">{t("registerTitle")}</CardTitle>
-        <CardDescription>{t("registerSubtitle")}</CardDescription>
-      </CardHeader>
-      <CardContent className="flex flex-col gap-6">
-        <RegisterForm />
-        <p className="text-muted-foreground text-center text-sm">
-          {t("hasAccount")}{" "}
-          <Link
-            href={routes.login}
-            className="text-primary font-medium hover:underline"
-          >
-            {t("loginCta")}
-          </Link>
+    <>
+      <LogoMark size={144} />
+
+      <div className="flex flex-col items-center gap-3 text-center">
+        <h1 className="text-[20px] leading-8 font-semibold text-foreground">
+          {t("registerHeading")}
+        </h1>
+        <p className="text-sm leading-5 text-text-body">
+          {t("registerSubheading")}
         </p>
-      </CardContent>
-    </Card>
+      </div>
+
+      <RegisterForm />
+
+      <p className="text-center text-sm text-foreground">
+        {t("hasAccountFooter")}{" "}
+        <Link href={routes.login} className="text-secondary underline">
+          {t("loginCta")}
+        </Link>
+      </p>
+    </>
   );
 }
