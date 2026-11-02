@@ -19,37 +19,40 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
+          cache: pnpm
 
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       # Next generates the global `PageProps`/`LayoutProps`/root-params types
       # into `.next/types`. tsc needs them, so generate before typechecking.
       - name: Generate Next types
-        run: npm run typegen
+        run: pnpm run typegen
         env:
           NEXT_PUBLIC_APP_URL: https://elkema.example
           NEXT_PUBLIC_API_URL: https://api.elkema.example
 
       - name: Typecheck
-        run: npm run typecheck
+        run: pnpm run typecheck
 
       - name: Lint
-        run: npm run lint
+        run: pnpm run lint
 
       - name: Format check
-        run: npm run format:check
+        run: pnpm run format:check
 
       - name: Unit tests
-        run: npm run test
+        run: pnpm run test
 
       - name: Build
-        run: npm run build
+        run: pnpm run build
         env:
           NEXT_PUBLIC_APP_URL: https://elkema.example
           NEXT_PUBLIC_API_URL: https://api.elkema.example
@@ -62,26 +65,29 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: npm
+          cache: pnpm
 
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       - name: Install Playwright browsers
-        run: npx playwright install --with-deps chromium
+        run: pnpm exec playwright install --with-deps chromium
 
       - name: Build
-        run: npm run build
+        run: pnpm run build
         env:
           NEXT_PUBLIC_APP_URL: https://elkema.example
           NEXT_PUBLIC_API_URL: https://api.elkema.example
 
       - name: Run E2E tests
-        run: npm run test:e2e
+        run: pnpm run test:e2e
         env:
           CI: "true"
           NEXT_PUBLIC_APP_URL: https://elkema.example
