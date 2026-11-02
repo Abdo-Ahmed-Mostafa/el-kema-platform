@@ -71,7 +71,12 @@
     "next": "التالي",
     "page": "صفحة {page}",
     "showPassword": "إظهار كلمة المرور",
-    "hidePassword": "إخفاء كلمة المرور"
+    "hidePassword": "إخفاء كلمة المرور",
+    "search": "بحث",
+    "searchPlaceholder": "ابحث",
+    "progress": "{value}% مكتمل",
+    "expand": "توسيع",
+    "collapse": "طي"
   },
   "nav": {
     "home": "الرئيسية",

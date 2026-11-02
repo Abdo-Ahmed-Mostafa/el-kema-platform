@@ -71,7 +71,12 @@
     "next": "Next",
     "page": "Page {page}",
     "showPassword": "Show password",
-    "hidePassword": "Hide password"
+    "hidePassword": "Hide password",
+    "search": "Search",
+    "searchPlaceholder": "Search",
+    "progress": "{value}% complete",
+    "expand": "Expand",
+    "collapse": "Collapse"
   },
   "nav": {
     "home": "Home",
