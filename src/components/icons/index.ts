@@ -13,4 +13,5 @@
  * importing one icon never pulls in the rest.
  */
 export * from "./lucide";
+export * from "./ui";
 export * from "./brand";

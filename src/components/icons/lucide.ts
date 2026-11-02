@@ -27,11 +27,10 @@ export {
   ShieldCheck as SecurityIcon,
 
   // --- Auth / identity ---
-  Mail as EmailIcon,
+  // NOTE: EmailIcon, PersonIcon, PhoneIcon and CardIdIcon are NOT re-exported
+  // from lucide here — they are hand-authored real Figma glyphs (see ./ui) so
+  // the auth inputs match Figma 1:1. Only PasswordIcon (the lock) stays lucide.
   Lock as PasswordIcon,
-  User as PersonIcon,
-  Phone as PhoneIcon,
-  IdCard as CardIdIcon,
 
   // --- Roles ---
   Users as ParentIcon,

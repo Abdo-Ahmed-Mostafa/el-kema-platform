@@ -66,6 +66,27 @@ describe("register schema", () => {
     expect(schema.safeParse({ ...base, phone: "12345" }).success).toBe(false);
   });
 
+  it("accepts a plain 11-digit Egyptian mobile (01xxxxxxxxx)", () => {
+    expect(schema.safeParse({ ...base, phone: "01234567890" }).success).toBe(
+      true,
+    );
+  });
+
+  it("rejects a +20 / country-prefixed mobile (digits-only, no prefix)", () => {
+    expect(schema.safeParse({ ...base, phone: "+201012345678" }).success).toBe(
+      false,
+    );
+    expect(schema.safeParse({ ...base, phone: "00201012345678" }).success).toBe(
+      false,
+    );
+  });
+
+  it("rejects a mobile with the wrong operator digit", () => {
+    expect(schema.safeParse({ ...base, phone: "01312345678" }).success).toBe(
+      false,
+    );
+  });
+
   it("rejects a national id that is not 14 digits", () => {
     expect(schema.safeParse({ ...base, nationalId: "123" }).success).toBe(
       false,

@@ -1,11 +1,11 @@
 "use client";
 
 import * as React from "react";
-import { Eye, EyeOff } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 import { cn } from "@/lib/utils/cn";
 import { Button } from "@/components/ui/button";
+import { EyeIcon, EyeClosedIcon } from "@/components/icons";
 
 type PasswordToggleProps = Omit<
   React.ComponentProps<typeof Button>,
@@ -19,8 +19,8 @@ type PasswordToggleProps = Omit<
 
 /**
  * Password Toggle — a ghost icon Button that flips a password field between
- * masked and visible. Eye/EyeOff come from lucide-react directly (the icon
- * barrel does not re-export them).
+ * masked and visible. The eye / eye-closed glyphs are the real Figma icons
+ * re-exported from the icon barrel.
  *
  * It is meant to sit as a password Input's trailing affordance. The Input's
  * icon wrapper is `pointer-events-none`, so place this toggle with
@@ -58,7 +58,7 @@ function PasswordToggle({
       className={cn(className)}
       {...props}
     >
-      {visible ? <EyeOff /> : <Eye />}
+      {visible ? <EyeClosedIcon /> : <EyeIcon />}
     </Button>
   );
 }

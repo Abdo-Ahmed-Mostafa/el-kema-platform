@@ -40,7 +40,7 @@ export async function Navbar() {
     // justify-between. Keep sticky + backdrop.
     // NOTE: uses the shared `shadow-card` token (--shadow-card in globals.css:
     // navy #123458 @ 12%, offset 0 4px, blur 10px) added in stage 4B.
-    <header className="bg-card/80 shadow-card sticky top-0 z-40 w-full backdrop-blur-sm">
+    <header className="bg-card/80 shadow-card sticky top-0 z-50 w-full backdrop-blur-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-3">
         <div className="flex items-center gap-8">
           <Logo />

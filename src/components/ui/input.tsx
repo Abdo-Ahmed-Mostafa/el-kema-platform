@@ -62,8 +62,10 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         aria-invalid={error || undefined}
         className={cn(
           inputVariants({ size, state: resolvedState }),
-          startIcon && "ps-9",
-          endIcon && "pe-9",
+          // Reserve space on the icon side: edge 8 + icon 24 + gap 8 = 40px
+          // (ps-10 / pe-10) so text never overlaps the 24px Figma glyph.
+          startIcon && "ps-10",
+          endIcon && "pe-10",
           className,
         )}
         {...props}
@@ -84,7 +86,9 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         {startIcon ? (
           <span
             className={cn(
-              "pointer-events-none absolute inset-y-0 start-0 flex items-center ps-2 [&_svg]:size-4",
+              // Figma: 24px icon, 8px edge padding, vertically centered on the
+              // field's leading edge.
+              "pointer-events-none absolute inset-y-0 start-0 flex items-center ps-2 [&_svg]:size-6",
               iconColor,
             )}
           >
@@ -95,7 +99,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
         {endIcon ? (
           <span
             className={cn(
-              "pointer-events-none absolute inset-y-0 end-0 flex items-center pe-2 [&_svg]:size-4",
+              "pointer-events-none absolute inset-y-0 end-0 flex items-center pe-2 [&_svg]:size-6",
               iconColor,
             )}
           >

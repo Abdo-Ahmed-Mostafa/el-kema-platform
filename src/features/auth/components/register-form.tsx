@@ -21,6 +21,7 @@ import {
 } from "@/components/icons";
 import { createRegisterSchema, type RegisterValues } from "../schemas";
 import { useRegister } from "../hooks";
+import { useNumericField } from "./use-numeric-field";
 
 /** Role cards in Figma display order (Student / Parent / Teacher). */
 const roleOrder: Role[] = ["student", "parent", "teacher"];
@@ -55,6 +56,7 @@ export function RegisterForm() {
     control,
     handleSubmit,
     trigger,
+    setValue,
     formState: { errors },
   } = useForm<RegisterValues>({
     resolver: zodResolver(createRegisterSchema(tv)),
@@ -72,6 +74,15 @@ export function RegisterForm() {
   const onSubmit = handleSubmit((values) => {
     registerMutation.mutate(values);
   });
+
+  // Phone (11 digits) and national id (14 digits) accept digits only, enforced
+  // as the user types and on paste — not just on submit.
+  const phoneNumeric = useNumericField<RegisterValues>("phone", setValue, 11);
+  const nationalIdNumeric = useNumericField<RegisterValues>(
+    "nationalId",
+    setValue,
+    14,
+  );
 
   const goToStep2 = async () => {
     const valid = await trigger([...step1Fields]);
@@ -185,12 +196,12 @@ export function RegisterForm() {
               id="phone"
               size="md"
               type="tel"
-              inputMode="tel"
               autoComplete="tel"
               placeholder={t("phonePlaceholder")}
               endIcon={<PhoneIcon />}
               aria-invalid={!!errors.phone}
               {...register("phone")}
+              {...phoneNumeric}
             />
             {errors.phone ? (
               <p className="text-destructive text-sm">{errors.phone.message}</p>
@@ -205,11 +216,11 @@ export function RegisterForm() {
             <Input
               id="nationalId"
               size="md"
-              inputMode="numeric"
               placeholder={t("nationalIdPlaceholder")}
               endIcon={<CardIdIcon />}
               aria-invalid={!!errors.nationalId}
               {...register("nationalId")}
+              {...nationalIdNumeric}
             />
             {errors.nationalId ? (
               <p className="text-destructive text-sm">
