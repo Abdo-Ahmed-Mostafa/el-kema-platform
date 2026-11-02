@@ -66,6 +66,13 @@
       "subtitle": "Follow your children's learning."
     }
   },
+  "molecules": {
+    "previous": "Previous",
+    "next": "Next",
+    "page": "Page {page}",
+    "showPassword": "Show password",
+    "hidePassword": "Hide password"
+  },
   "nav": {
     "home": "Home",
     "courses": "Courses",

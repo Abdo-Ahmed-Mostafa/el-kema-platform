@@ -66,6 +66,13 @@
       "subtitle": "تابع تعلّم أبنائك."
     }
   },
+  "molecules": {
+    "previous": "السابق",
+    "next": "التالي",
+    "page": "صفحة {page}",
+    "showPassword": "إظهار كلمة المرور",
+    "hidePassword": "إخفاء كلمة المرور"
+  },
   "nav": {
     "home": "الرئيسية",
     "courses": "الكورسات",
