@@ -43,14 +43,16 @@ export function DashboardSidebar({ role }: { role: Role }) {
             <Link
               key={item.href}
               href={item.href}
+              aria-current={active ? "page" : undefined}
+              data-state={active ? "selected" : "default"}
               className={cn(
-                "flex items-center gap-3 rounded-md px-3 py-2 text-sm font-medium transition-colors",
+                "text-paragraph-md flex items-center gap-2 rounded-lg px-4 py-3 transition-colors",
                 active
-                  ? "bg-sidebar-primary text-sidebar-primary-foreground"
-                  : "hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
+                  ? "bg-primary text-primary-foreground"
+                  : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground",
               )}
             >
-              <Icon className="size-4" />
+              <Icon className="size-5 shrink-0" />
               {t(item.labelKey)}
             </Link>
           );

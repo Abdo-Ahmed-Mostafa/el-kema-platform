@@ -53,6 +53,8 @@
     "students": "الطلاب",
     "children": "الأبناء",
     "welcome": "مرحبًا بعودتك، {name}",
+    "greeting": "أهلًا بك من جديد،",
+    "greetingSubtitle": "إليك ما يحدث اليوم.",
     "student": {
       "title": "لوحة الطالب",
       "subtitle": "تابع كورساتك وتقدّمك."

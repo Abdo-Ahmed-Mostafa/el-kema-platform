@@ -53,6 +53,8 @@
     "students": "Students",
     "children": "Children",
     "welcome": "Welcome back, {name}",
+    "greeting": "Welcome back,",
+    "greetingSubtitle": "Here's what's happening today.",
     "student": {
       "title": "Student dashboard",
       "subtitle": "Track your courses and progress."
