@@ -94,7 +94,322 @@
     "heroTitle": "Learn without limits",
     "heroSubtitle": "Courses, teachers, and tools that help students, teachers, and parents succeed together.",
     "getStarted": "Get started",
-    "browseCourses": "Browse courses"
+    "browseCourses": "Browse courses",
+    "homePage": {
+      "tracking": {
+        "heading": "Keep track of your learning journey",
+        "subheading": "Pick up where you left off and keep learning step by step until you reach your goals.",
+        "cards": {
+          "math": {
+            "badge": "The Math foundation course",
+            "greeting": "Welcome back!",
+            "body": "You are on the road to the summit. Keep learning, finish what you started, and make every lesson a new step toward your goals.",
+            "timeLeft": "35 minutes left",
+            "lesson": "Lesson 8 of 20",
+            "grade": "Second secondary",
+            "cta": "Continue learning"
+          },
+          "english": {
+            "badge": "The English language course",
+            "greeting": "Welcome back!",
+            "body": "You are on the road to the summit. Keep learning, finish what you started, and make every lesson a new step toward your goals.",
+            "timeLeft": "35 minutes left",
+            "lesson": "Lesson 8 of 20",
+            "grade": "Second secondary",
+            "cta": "Continue learning"
+          },
+          "chemistry": {
+            "badge": "The Chemistry foundation course",
+            "greeting": "Welcome back!",
+            "body": "You are on the road to the summit. Keep learning, finish what you started, and make every lesson a new step toward your goals.",
+            "timeLeft": "35 minutes left",
+            "lesson": "Lesson 8 of 20",
+            "grade": "Second secondary",
+            "cta": "Continue learning"
+          }
+        }
+      },
+      "courses": {
+        "heading": "Discover the courses that suit you",
+        "subheading": "Learn from varied educational content designed to help you develop your skills, improve your level, and reach your learning goals.",
+        "cta": "Book now",
+        "discount": "{value}% off",
+        "duration": "{value} minutes",
+        "grade": "Second secondary",
+        "students": "+{value} students",
+        "items": {
+          "chemistry": {
+            "title": "The first unit in Chemistry",
+            "instructor": "Dr. Mohamed Abdel Moneim",
+            "imageAlt": "Chemistry course cover",
+            "rating": "4.5",
+            "duration": "45",
+            "students": "50",
+            "oldPrice": "1200 EGP",
+            "price": "500 EGP",
+            "discount": "45"
+          },
+          "english": {
+            "title": "The first lesson in English",
+            "instructor": "Shaimaa Hassan",
+            "imageAlt": "English course cover",
+            "rating": "4.0",
+            "duration": "45",
+            "students": "50",
+            "oldPrice": "500 EGP",
+            "price": "300 EGP",
+            "discount": "45"
+          },
+          "math": {
+            "title": "The Math foundation course",
+            "instructor": "Ahmed Abdallah",
+            "imageAlt": "Math course cover",
+            "rating": "4.8",
+            "duration": "45",
+            "students": "50",
+            "oldPrice": "900 EGP",
+            "price": "450 EGP",
+            "discount": "45"
+          }
+        }
+      },
+      "instructors": {
+        "heading": "Learn from an elite group of teachers",
+        "subheading": "Benefit from specialized teachers who deliver knowledge clearly and in an organized way, helping you progress confidently on your learning journey.",
+        "cta": "View profile",
+        "viewAll": "Discover more",
+        "courses": "+{value} courses",
+        "experience": "+{value} years experience",
+        "students": "+{value} students",
+        "items": {
+          "omar": {
+            "name": "Omar Hany",
+            "role": "Senior teacher at the Ministry of Education",
+            "imageAlt": "Omar Hany",
+            "rating": "4.9",
+            "courses": "12",
+            "experience": "7",
+            "students": "50"
+          },
+          "menna": {
+            "name": "Menna Mohamed",
+            "role": "Passionate about enabling students to think creatively",
+            "imageAlt": "Menna Mohamed",
+            "rating": "4.2",
+            "courses": "12",
+            "experience": "7",
+            "students": "50"
+          },
+          "ahmed": {
+            "name": "Ahmed Abdallah",
+            "role": "Certified mentor for developing digital skills",
+            "imageAlt": "Ahmed Abdallah",
+            "rating": "4.7",
+            "courses": "12",
+            "experience": "7",
+            "students": "50"
+          }
+        }
+      },
+      "offers": {
+        "heading": "Keep track of your learning journey",
+        "subheading": "Pick up where you left off and keep learning step by step until you reach your goals.",
+        "badge": "Suggested for you",
+        "instructor": {
+          "title": "A teacher that fits your learning journey",
+          "body": "Meet specialized teachers and choose the one who helps you understand what you learn and develop your level in clear steps.",
+          "cta": "View profile",
+          "imageAlt": "Suggested teacher illustration"
+        },
+        "course": {
+          "title": "A course that helps you reach your goal",
+          "body": "Discover a course that fits your interests and develop your skills through educational content that helps you progress with confidence.",
+          "cta": "Discover the course",
+          "imageAlt": "Suggested course illustration"
+        }
+      },
+      "faq": {
+        "heading": "Everything you want to know about El-Qimah Learn",
+        "subheading": "Clear answers to the most common questions to help you start your learning journey with confidence.",
+        "items": {
+          "one": {
+            "question": "How do I start learning on the platform?",
+            "answer": "Create your account, browse the courses that fit your level, and start learning right away at your own pace."
+          },
+          "two": {
+            "question": "Can I follow my progress?",
+            "answer": "Yes. Every course shows your progress so you always know where you stand and what to study next."
+          },
+          "three": {
+            "question": "Are the teachers specialized?",
+            "answer": "All teachers are selected for their experience and ability to explain lessons clearly and in an organized way."
+          },
+          "four": {
+            "question": "How are payments handled?",
+            "answer": "You can book any course securely and get immediate access to its content once the payment is completed."
+          },
+          "five": {
+            "question": "Can parents follow their children?",
+            "answer": "Parents can follow the learning journey and see their children's progress across subjects and courses."
+          },
+          "six": {
+            "question": "Is there support if I need help?",
+            "answer": "Our support team is available to help you at every step so you can keep learning without interruption."
+          }
+        }
+      }
+    },
+    "hero": {
+      "titleLead": "Elevate your learning, develop your skills, and start your journey toward achieving your goals and reaching the",
+      "titleHighlight": "summit",
+      "subtitle": "Discover a complete learning experience that combines high-quality content with specialized teachers, helping you understand your lessons better, develop your skills, and achieve your academic goals with confidence through a flexible learning experience that fits your needs and supports you at every stage of your journey.",
+      "primaryCta": "Start with El Kema now",
+      "secondaryCta": "Browse teachers",
+      "imageAlt": "Student learning illustration",
+      "stats": {
+        "stage": "Learning for every stage",
+        "results": "Better learning, stronger results",
+        "journey": "A complete learning journey"
+      }
+    },
+    "steps": {
+      "title": "Your journey to the summit starts with three steps",
+      "subtitle": "Learn in a simple, organized way and make real progress with every step.",
+      "items": {
+        "discover": {
+          "number": "01",
+          "title": "Discover what suits you",
+          "text": "Start by defining your needs and learning goals, then explore the available subjects and courses and pick what fits your academic stage. You'll find a variety of options to help you choose the right path for you."
+        },
+        "learn": {
+          "number": "02",
+          "title": "Learn your way",
+          "text": "Start learning through organized, simplified content and benefit from specialized teachers to understand lessons and build your skills. Learn at your own pace and revisit the content whenever you need."
+        },
+        "progress": {
+          "number": "03",
+          "title": "Move toward your goal",
+          "text": "Track your progress continuously and discover what you've achieved and what still needs development. With every lesson and new step, you get closer to your goals and build confidence in your abilities."
+        }
+      }
+    },
+    "courses": {
+      "title": "Featured courses that help you progress",
+      "subtitle": "Choose from a carefully selected set of courses and start learning today.",
+      "viewAll": "View all",
+      "level": "Second secondary",
+      "cta": "Book now",
+      "items": {
+        "one": {
+          "title": "The first unit in Chemistry",
+          "instructor": "Dr. Mohamed Abdel Moneim"
+        },
+        "two": {
+          "title": "Introduction to Physics fundamentals",
+          "instructor": "Dr. Ahmed Sami"
+        },
+        "three": {
+          "title": "Algebra and equations made simple",
+          "instructor": "Dr. Sara Hassan"
+        }
+      }
+    },
+    "parents": {
+      "title": "Be part of your children's success journey",
+      "subtitle": "You can follow the learning journey, see your children's progress, and support them in achieving their goals.",
+      "items": {
+        "follow": {
+          "number": "01",
+          "title": "Follow their progress",
+          "text": "Stay close to your children's learning journey and see their progress across subjects and courses, so you always know where they stand."
+        },
+        "support": {
+          "number": "02",
+          "title": "Support them at every step",
+          "text": "Discover where your children need help and support them with the right resources at the right time, keeping them motivated along the way."
+        },
+        "celebrate": {
+          "number": "03",
+          "title": "Celebrate their achievements",
+          "text": "Follow the milestones your children reach and celebrate every achievement, building their confidence and encouraging them to keep going."
+        }
+      }
+    },
+    "clarity": {
+      "title": "From learning challenges to a clearer experience",
+      "subtitle": "From scattered content and hard choices to an organized learning journey that helps you reach your goals with confidence.",
+      "problemsTitle": "The challenges",
+      "solutionsTitle": "The clarity",
+      "problems": {
+        "scattered": {
+          "title": "Scattered learning content",
+          "text": "Students face many sources and lessons, which makes reaching the right content and organizing the learning journey more difficult."
+        },
+        "choosing": {
+          "title": "Difficulty choosing the right course",
+          "text": "Too many options make choosing more confusing, so it can be hard to know the most suitable course or teacher for a student's level and goals."
+        },
+        "path": {
+          "title": "No clear learning path",
+          "text": "Some students start learning different topics without knowing the next step, making it harder to track progress and reach their goals."
+        }
+      },
+      "solutions": {
+        "organized": {
+          "title": "Organized, easy-to-reach content",
+          "text": "Find the learning content and courses that suit your academic stage in one place, without moving between multiple sources."
+        },
+        "choice": {
+          "title": "A choice that fits your needs",
+          "text": "Explore the courses, teachers, and materials suited to your level and needs, and pick what helps you achieve your learning goals."
+        },
+        "journey": {
+          "title": "A clear learning journey",
+          "text": "Move forward with clear steps toward your goal. Organize your learning and follow steps that show what you've learned and what to learn next, so you progress with confidence."
+        }
+      }
+    },
+    "plans": {
+      "title": "Flexible plans that fit your learning journey",
+      "subtitle": "Choose the plan that suits you and benefit from tools that help you manage your courses, reach your students, and grow your educational presence.",
+      "featuresLabel": "Features",
+      "cta": "Choose plan",
+      "proBadge": "Most popular",
+      "items": {
+        "free": {
+          "title": "Free",
+          "description": "Get started and explore the platform.",
+          "price": "Free",
+          "features": [
+            "Access to free courses",
+            "Track basic progress",
+            "Community support"
+          ]
+        },
+        "pro": {
+          "title": "Pro",
+          "description": "For learners who want the full experience.",
+          "price": "3900 EGP",
+          "features": [
+            "Access to all courses",
+            "Advanced progress tracking",
+            "Priority support",
+            "Downloadable resources"
+          ]
+        },
+        "premium": {
+          "title": "Premium",
+          "description": "For teachers growing their presence.",
+          "price": "5000 EGP",
+          "features": [
+            "Everything in Pro",
+            "Teacher dashboard",
+            "Student management",
+            "Dedicated support"
+          ]
+        }
+      }
+    }
   },
   "auth": {
     "loginTitle": "Welcome back",
@@ -160,9 +475,13 @@
       "passwordRequired": "Password is required",
       "passwordMin": "Password must be at least 8 characters",
       "firstNameRequired": "First name is required",
+      "firstNameMin": "First name must be at least 2 characters",
       "secondNameRequired": "Second name is required",
+      "secondNameMin": "Second name must be at least 2 characters",
       "thirdNameRequired": "Third name is required",
+      "thirdNameMin": "Third name must be at least 2 characters",
       "lastNameRequired": "Last name is required",
+      "lastNameMin": "Last name must be at least 2 characters",
       "phoneRequired": "Phone number is required",
       "phoneInvalid": "Enter a valid mobile number",
       "nationalIdRequired": "National ID is required",

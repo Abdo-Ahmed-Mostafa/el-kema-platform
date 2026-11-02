@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
-import { Link } from "@/lib/i18n/navigation";
 import { routes } from "@/config/routes";
-import { Button } from "@/components/ui/button";
 import { buildMetadata } from "@/lib/seo";
 import { hasLocale } from "next-intl";
 import { routing } from "@/lib/i18n/routing";
+
+import { TrackingSection } from "./_sections/tracking-section";
+import { CoursesSection } from "./_sections/courses-section";
+import { InstructorsSection } from "./_sections/instructors-section";
+import { OffersSection } from "./_sections/offers-section";
+import { FaqSectionBlock } from "./_sections/faq-section-block";
 
 export async function generateMetadata({
   params,
@@ -31,24 +35,13 @@ export default async function HomePage({ params }: PageProps<"/[locale]">) {
   const { locale } = await params;
   setRequestLocale(locale);
 
-  const t = await getTranslations("home");
-
   return (
-    <section className="flex flex-1 flex-col items-center justify-center gap-8 px-6 py-24 text-center">
-      <div className="flex max-w-2xl flex-col items-center gap-4">
-        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-          {t("heroTitle")}
-        </h1>
-        <p className="text-muted-foreground text-lg">{t("heroSubtitle")}</p>
-      </div>
-      <div className="flex flex-col gap-3 sm:flex-row">
-        <Button asChild size="lg">
-          <Link href={routes.register}>{t("getStarted")}</Link>
-        </Button>
-        <Button asChild size="lg" appearance="outline">
-          <Link href={routes.courses}>{t("browseCourses")}</Link>
-        </Button>
-      </div>
-    </section>
+    <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-[120px] px-5 py-16 lg:py-24">
+      <TrackingSection />
+      <CoursesSection />
+      <InstructorsSection />
+      <OffersSection />
+      <FaqSectionBlock />
+    </div>
   );
 }

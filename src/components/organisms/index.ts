@@ -13,6 +13,12 @@ export { Suggestion, suggestionVariants } from "./suggestion";
 export { Levels, levelsVariants } from "./levels";
 export { Leaderboard } from "./leaderboard";
 export { FaqSection, type FaqItem } from "./faq-section";
+export {
+  ProgressTrackingCard,
+  type ProgressTrackingCardProps,
+} from "./progress-tracking-card";
+export { MediaInfoCard, type MediaInfoCardProps } from "./media-info-card";
+export { OfferCard, type OfferCardProps } from "./offer-card";
 
 /** Dashboard organisms (stage 4B-2). */
 export {
