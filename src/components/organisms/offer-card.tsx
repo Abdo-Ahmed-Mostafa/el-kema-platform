@@ -9,8 +9,8 @@ import { SparklesIcon } from "@/components/icons";
 /**
  * Offer Card — Figma "Suggestion" offer cards (679:7877 teal / 679:7648 gold).
  *
- * A wide gradient card with a bleeding illustration anchored to the start edge
- * and a content column aligned to the end: a filled Badge (with a Sparkles
+ * A wide gradient card with a bleeding illustration anchored to the end edge
+ * and a content column aligned to the start: a filled Badge (with a Sparkles
  * glyph), a title (paragraph-lg), supporting body copy and an inverse filled
  * CTA. The `surface` prop swaps the gradient and the Badge variant — teal
  * ("teal" → accent badge) vs gold ("gold" → warning badge).
@@ -88,8 +88,8 @@ const OfferCard = React.forwardRef<HTMLElement, OfferCardProps>(
           />
         </div>
 
-        <div className="relative flex w-full max-w-[367px] flex-col items-end gap-6 text-end">
-          <div className="flex w-full flex-col items-end gap-5">
+        <div className="relative flex w-full max-w-[367px] flex-col items-start gap-6 text-start">
+          <div className="flex w-full flex-col items-start gap-5">
             <Badge variant={badgeVariant} tone="default">
               {badgeLabel}
               <SparklesIcon aria-hidden />

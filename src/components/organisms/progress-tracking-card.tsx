@@ -123,8 +123,8 @@ const ProgressTrackingCard = React.forwardRef<
       )}
       {...props}
     >
-      <div className="flex min-w-0 flex-1 flex-col items-end gap-6 text-end">
-        <div className="flex w-full flex-col items-end gap-5">
+      <div className="flex min-w-0 flex-1 flex-col items-start gap-6 text-start">
+        <div className="flex w-full flex-col items-start gap-5">
           <Badge variant={badgeVariant} tone="default">
             {badgeLabel}
             <SigmaIcon aria-hidden />
@@ -138,7 +138,7 @@ const ProgressTrackingCard = React.forwardRef<
           <p className="w-full text-sm leading-5 text-primary-foreground">
             {body}
           </p>
-          <div className="flex flex-wrap items-center justify-end gap-3 text-xs leading-4 font-medium">
+          <div className="flex flex-wrap items-center justify-start gap-3 text-xs leading-4 font-medium">
             <MetaItem
               icon={<StopwatchIcon aria-hidden />}
               label={meta.timeLeft}

@@ -15,7 +15,7 @@ import { RateIcon } from "@/components/icons";
  * wrap row of meta items separated by vertical dividers, an optional price row
  * (discount badge + strikethrough old price + current price), a full-width
  * outlined primary CTA, and an optional absolutely-positioned rating badge
- * pinned to the top-start corner.
+ * pinned to the top-end corner.
  *
  * Presentational only; all copy is prop-driven. Spacing uses logical utilities
  * (start/ps/pe) so it reads correctly in RTL + LTR.
@@ -82,7 +82,7 @@ const MediaInfoCard = React.forwardRef<HTMLElement, MediaInfoCardProps>(
         data-slot="media-info-card"
         aria-labelledby={headingId}
         className={cn(
-          "relative flex w-full flex-col gap-6 rounded-card-xl border-[1.5px] border-border bg-card p-4 text-end shadow-card",
+          "relative flex w-full flex-col gap-6 rounded-card-xl border-[1.5px] border-border bg-card p-4 text-start shadow-card",
           className,
         )}
         {...props}
@@ -97,8 +97,8 @@ const MediaInfoCard = React.forwardRef<HTMLElement, MediaInfoCardProps>(
           />
         </div>
 
-        <div className="flex flex-col items-end gap-5">
-          <div className="flex w-full flex-col items-end gap-3">
+        <div className="flex flex-col items-start gap-5">
+          <div className="flex w-full flex-col items-start gap-3">
             <h3
               id={headingId}
               className="w-full text-[20px] leading-8 font-semibold text-foreground"
@@ -108,7 +108,7 @@ const MediaInfoCard = React.forwardRef<HTMLElement, MediaInfoCardProps>(
             <p className="w-full text-sm leading-5 text-body">{subtitle}</p>
           </div>
 
-          <div className="flex flex-wrap items-center justify-end gap-3">
+          <div className="flex flex-wrap items-center justify-start gap-3">
             {meta.map((item, index) => (
               <React.Fragment key={index}>
                 {index > 0 ? (
@@ -123,7 +123,7 @@ const MediaInfoCard = React.forwardRef<HTMLElement, MediaInfoCardProps>(
           </div>
 
           {price ? (
-            <div className="flex w-full flex-wrap items-center justify-end gap-3">
+            <div className="flex w-full flex-wrap items-center justify-start gap-3">
               {price.discountLabel ? (
                 <Badge variant="error" tone="light">
                   {price.discountLabel}
@@ -165,7 +165,7 @@ const MediaInfoCard = React.forwardRef<HTMLElement, MediaInfoCardProps>(
           <Badge
             variant="primary"
             tone="default"
-            className="absolute start-[30px] top-[30px]"
+            className="absolute end-[30px] top-[30px]"
           >
             {rating}
             <RateIcon aria-hidden />

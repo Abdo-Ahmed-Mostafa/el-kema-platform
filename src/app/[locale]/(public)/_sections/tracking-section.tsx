@@ -18,8 +18,8 @@ export async function TrackingSection() {
   const t = await getTranslations("home.homePage.tracking");
 
   return (
-    <section className="flex w-full flex-col items-end gap-[60px]">
-      <div className="flex w-full flex-col items-end gap-3 text-end">
+    <section className="flex w-full flex-col items-start gap-[60px]">
+      <div className="flex w-full flex-col items-start gap-3 text-start">
         <h2 className="text-[36px] leading-[48px] font-semibold text-primary">
           {t("heading")}
         </h2>
