@@ -70,6 +70,7 @@
     "previous": "السابق",
     "next": "التالي",
     "page": "صفحة {page}",
+    "pagination": "ترقيم الصفحات",
     "showPassword": "إظهار كلمة المرور",
     "hidePassword": "إخفاء كلمة المرور",
     "search": "بحث",

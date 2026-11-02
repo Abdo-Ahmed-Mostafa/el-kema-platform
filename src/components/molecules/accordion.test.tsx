@@ -24,7 +24,7 @@ describe("Accordion", () => {
         </AccordionItem>
       </Accordion>,
     );
-    const trigger = screen.getByRole("button", { name: /Expand/ });
+    const trigger = screen.getByRole("button", { name: "Question A" });
     expect(trigger).toHaveAttribute("aria-expanded", "false");
     expect(screen.queryByText("Answer A")).not.toBeVisible();
   });

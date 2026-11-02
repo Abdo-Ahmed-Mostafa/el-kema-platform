@@ -46,7 +46,7 @@ function Pagination({
   return (
     <nav
       data-slot="pagination"
-      aria-label={t("page", { page })}
+      aria-label={t("pagination")}
       className={cn("flex items-center gap-2", className)}
       {...props}
     >

@@ -70,6 +70,7 @@
     "previous": "Previous",
     "next": "Next",
     "page": "Page {page}",
+    "pagination": "Pagination",
     "showPassword": "Show password",
     "hidePassword": "Hide password",
     "search": "Search",

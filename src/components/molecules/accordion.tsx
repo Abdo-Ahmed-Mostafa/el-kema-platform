@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import { useTranslations } from "next-intl";
 
 import { cn } from "@/lib/utils/cn";
 import { DownArrowIcon } from "@/components/icons";
@@ -107,7 +106,6 @@ function AccordionItem({
   ...props
 }: AccordionItemProps) {
   const { openItems, toggle } = useAccordionContext();
-  const t = useTranslations("molecules");
   const reactId = React.useId();
   const triggerId = `${reactId}-trigger`;
   const panelId = `${reactId}-panel`;
@@ -131,7 +129,6 @@ function AccordionItem({
           data-state={open ? "open" : "closed"}
           aria-expanded={open}
           aria-controls={panelId}
-          aria-label={open ? t("collapse") : t("expand")}
           onClick={() => toggle(value)}
           className="flex w-full items-center justify-between gap-4 px-4 py-4 text-start text-[20px] leading-8 font-medium text-foreground transition-colors outline-none hover:bg-primary-light focus-visible:ring-ring/50 focus-visible:ring-[3px] [&_svg]:size-5 [&_svg]:shrink-0 [&_svg]:text-primary"
         >
