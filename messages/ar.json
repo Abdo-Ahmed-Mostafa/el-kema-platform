@@ -200,19 +200,42 @@
       },
       "report": {
         "course": "الكورس",
+        "name": "الاسم",
         "date": "التاريخ",
         "students": "الطلاب",
         "amount": "المبلغ",
         "grade": "الصف",
         "code": "الكود",
         "exam": "الاختبار",
+        "examNumber": "رقم الاختبار",
+        "lecture": "المحاضرة",
         "mark": "الدرجة",
         "status": "الحالة",
         "attendance": "الحضور",
         "actions": "إجراءات",
         "details": "التفاصيل",
         "pass": "ناجح",
-        "fail": "راسب"
+        "fail": "راسب",
+        "view": "عرض",
+        "delete": "حذف"
+      },
+      "coursePerformance": {
+        "revenue": "الإيرادات",
+        "completionRate": "معدل إكمال الطلاب",
+        "students": "عدد الطلاب",
+        "rating": "التقييم"
+      },
+      "recentActivityCourse": {
+        "title": "النشاط الأخير",
+        "rating": "التقييم",
+        "attendance": "عدد الطلاب الحاضرين",
+        "earnings": "الأرباح"
+      },
+      "examCard": {
+        "questions": "عدد الأسئلة",
+        "duration": "المدة",
+        "date": "التاريخ",
+        "activate": "تفعيل الامتحان"
       },
       "filter": {
         "all": "الكل"

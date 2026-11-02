@@ -40,3 +40,21 @@ export {
   type PaymentFilterMethod,
   type PaymentFilterItem,
 } from "./payment-filter";
+export {
+  Report,
+  ReportRow,
+  COLUMN_SETS,
+  type ReportVariant,
+  type ReportColumn,
+  type ReportColumnKey,
+  type ReportActions,
+} from "./report";
+export { CoursePerformance } from "./course-performance";
+export {
+  RecentActivityCourse,
+  recentActivityCourseVariants,
+} from "./recent-activity-course";
+export { Testimonials } from "./testimonials";
+export { ExamCard } from "./exam-card";
+export { StudentOverview, studentOverviewVariants } from "./student-overview";
+export { StudentData } from "./student-data";

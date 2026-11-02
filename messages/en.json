@@ -200,19 +200,42 @@
       },
       "report": {
         "course": "Course",
+        "name": "Name",
         "date": "Date",
         "students": "Students",
         "amount": "Amount",
         "grade": "Grade",
         "code": "Code",
         "exam": "Exam",
+        "examNumber": "Exam no.",
+        "lecture": "Lecture",
         "mark": "Mark",
         "status": "Status",
         "attendance": "Attendance",
         "actions": "Actions",
         "details": "Details",
         "pass": "Pass",
-        "fail": "Fail"
+        "fail": "Fail",
+        "view": "View",
+        "delete": "Delete"
+      },
+      "coursePerformance": {
+        "revenue": "Revenue",
+        "completionRate": "Student completion rate",
+        "students": "Students",
+        "rating": "Rating"
+      },
+      "recentActivityCourse": {
+        "title": "Recent activity",
+        "rating": "Rating",
+        "attendance": "Students present",
+        "earnings": "Earnings"
+      },
+      "examCard": {
+        "questions": "Questions",
+        "duration": "Duration",
+        "date": "Date",
+        "activate": "Activate exam"
       },
       "filter": {
         "all": "All"
