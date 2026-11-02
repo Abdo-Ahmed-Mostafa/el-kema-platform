@@ -1,0 +1,8 @@
+{
+  "verdict": "APPROVED",
+  "findings": [
+    "onChange override vs compose: register fields spread {...register(name)} then {...numericHook}, so the hook's onChange replaces RHF's registered onChange. Correct because setValue(..., { shouldValidate, shouldDirty }) drives form state and register's name/ref/onBlur remain applied; noted for maintainers, no action required.",
+    "Shared PersonIcon affects dashboards: PersonIcon (now the Figma person-in-circle glyph) is consumed by recent-activity-course.tsx, student-data.tsx, and student-overview.tsx at size-5. Intended per spec (update the shared icon), but is a visual change outside auth; confirm the new glyph reads well at 20px in those dashboard contexts."
+  ],
+  "reviewDoc": "d:\\devs\\El-Kema-platform\\.agents\\tasks\\auth-fixes\\review.md"
+}
