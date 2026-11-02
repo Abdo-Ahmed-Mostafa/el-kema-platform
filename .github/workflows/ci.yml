@@ -28,6 +28,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # Next generates the global `PageProps`/`LayoutProps`/root-params types
+      # into `.next/types`. tsc needs them, so generate before typechecking.
+      - name: Generate Next types
+        run: npm run typegen
+        env:
+          NEXT_PUBLIC_APP_URL: https://elkema.example
+          NEXT_PUBLIC_API_URL: https://api.elkema.example
+
       - name: Typecheck
         run: npm run typecheck
 
