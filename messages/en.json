@@ -185,6 +185,39 @@
       "totalScore": "Total score",
       "rank": "Rank {rank}"
     },
+    "dashboard": {
+      "logout": "Log out",
+      "search": "Search",
+      "welcome": "Welcome back, {name}",
+      "viewAll": "View all",
+      "subscriptions": {
+        "active": "Active",
+        "expired": "Expired",
+        "cancelled": "Cancelled"
+      },
+      "activity": {
+        "title": "Recent activity"
+      },
+      "report": {
+        "course": "Course",
+        "date": "Date",
+        "students": "Students",
+        "amount": "Amount",
+        "grade": "Grade",
+        "code": "Code",
+        "exam": "Exam",
+        "mark": "Mark",
+        "status": "Status",
+        "attendance": "Attendance",
+        "actions": "Actions",
+        "details": "Details",
+        "pass": "Pass",
+        "fail": "Fail"
+      },
+      "filter": {
+        "all": "All"
+      }
+    },
     "faq": {
       "title": "Frequently asked questions"
     }

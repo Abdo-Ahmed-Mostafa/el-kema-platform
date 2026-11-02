@@ -1,0 +1,25 @@
+{
+  "id": "FEAT-001",
+  "type": "feat",
+  "description": "Foundation: add additive typography utility classes (text-h4-semibold 28/40 weight 600; text-paragraph-md 18/28 weight 500) in src/app/globals.css WITHOUT touching existing tokens/palette/font, and scaffold the organisms.dashboard i18n key group in BOTH messages/en.json and messages/ar.json in sync. --shadow-card, --radius-card-xl (rounded-card-xl) and --text-body already exist — do not redefine them. This feature unblocks every dashboard organism which uses the new typography and i18n keys. Independent of FEAT-002..005 except that they consume its outputs, so it runs first.",
+  "status": "completed",
+  "steps": [
+    "In src/app/globals.css, inside an @layer components block (create if absent), add two reusable classes: `.text-h4-semibold { font-size: 28px; line-height: 40px; font-weight: 600; }` and `.text-paragraph-md { font-size: 18px; line-height: 28px; font-weight: 500; }`. Do NOT alter :root/.dark tokens, the palette, or --font-sans. Confirm --shadow-card, --radius-card-xl and --text-body already exist (they do) and reuse them as-is.",
+    "In messages/en.json under the existing top-level `organisms` object, add a nested `dashboard` object with the shared keys used by later features, e.g. logout, search, welcome, viewAll; subscriptions.{active,expired,cancelled}; activity.{title}; report headers (course,date,students,amount,grade,code,exam,mark,status,attendance,actions,details,pass,fail); filter.{all}. Fill English strings. Add additional keys as later features need them (always in both files).",
+    "Mirror the EXACT same key paths in messages/ar.json under organisms.dashboard with Arabic translations. Keys MUST match en.json one-to-one (messages-parity.test.ts enforces identical organisms key sets).",
+    "Pull Figma typography/token context only if a value is unclear: get_design_context nodeId 965:5276 confirms H4 Semi Bold 28/40 weight 600 and Paragraph md 18/28 weight 500."
+  ],
+  "acceptance_criteria": [
+    "globals.css adds text-h4-semibold and text-paragraph-md as additive classes; no existing token, color, or font declaration is changed.",
+    "messages/en.json and messages/ar.json both contain organisms.dashboard with identical key sets.",
+    "Running `npm run test -- messages-parity` passes (en/ar organisms parity).",
+    "`npm run build` compiles the updated CSS with no errors."
+  ],
+  "verification": [
+    "npm run test -- messages-parity",
+    "npm run typegen; npm run typecheck",
+    "npm run build"
+  ],
+  "blocked_reason": null,
+  "findings": "DONE. Foundation complete; FEAT-002..005 can now consume these outputs.\n\nTYPOGRAPHY (src/app/globals.css): added a NEW `@layer components` block (none existed before) at end of file, after `@layer base`. Two additive classes available as plain utilities: `.text-h4-semibold` (28px/40px/600) and `.text-paragraph-md` (18px/28px/500). Apply as className='text-h4-semibold' / 'text-paragraph-md'. No :root/.dark token, palette color, or --font-sans was touched. Confirmed --shadow-card, --radius-card-xl (-> rounded-card-xl), --text-body (-> text-body) already exist — reuse as-is, do NOT redefine.\n\nI18N KEYS (messages/en.json + ar.json, in sync): added `organisms.dashboard` positioned between `organisms.leaderboard` and `organisms.faq` in BOTH files. Key paths available to later features: organisms.dashboard.logout, .search, .welcome ({name} ICU var), .viewAll; .subscriptions.{active,expired,cancelled}; .activity.title; .report.{course,date,students,amount,grade,code,exam,mark,status,attendance,actions,details,pass,fail}; .filter.all. Access via useTranslations('organisms') then t('dashboard.report.course') etc. Later features MUST add any new keys to BOTH files (messages-parity.test.ts enforces identical organisms leaf-key sets).\n\nVERIFICATION (all zero errors on this commit): `npm run test -- messages-parity` (1 passed), `npm run typegen` + `npm run typecheck` (clean), `npm run build` (compiled, 51 static pages). No new deps, no app-page adoption."
+}

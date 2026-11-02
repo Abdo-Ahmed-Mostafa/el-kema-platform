@@ -185,6 +185,39 @@
       "totalScore": "المجموع الكلي",
       "rank": "المركز {rank}"
     },
+    "dashboard": {
+      "logout": "تسجيل الخروج",
+      "search": "بحث",
+      "welcome": "مرحبًا بعودتك، {name}",
+      "viewAll": "عرض الكل",
+      "subscriptions": {
+        "active": "نشط",
+        "expired": "منتهي",
+        "cancelled": "ملغي"
+      },
+      "activity": {
+        "title": "النشاط الأخير"
+      },
+      "report": {
+        "course": "الكورس",
+        "date": "التاريخ",
+        "students": "الطلاب",
+        "amount": "المبلغ",
+        "grade": "الصف",
+        "code": "الكود",
+        "exam": "الاختبار",
+        "mark": "الدرجة",
+        "status": "الحالة",
+        "attendance": "الحضور",
+        "actions": "إجراءات",
+        "details": "التفاصيل",
+        "pass": "ناجح",
+        "fail": "راسب"
+      },
+      "filter": {
+        "all": "الكل"
+      }
+    },
     "faq": {
       "title": "الأسئلة الشائعة"
     }

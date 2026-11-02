@@ -249,3 +249,24 @@
     @apply bg-background text-foreground;
   }
 }
+
+/*
+ * Card-layer typography (stage 4B) — additive, reusable component classes
+ * mapped 1:1 to Figma: "H4 Semi Bold" 28/40 @ weight 600 and
+ * "Paragraph md" 18/28 @ weight 500. These do not touch any token, color,
+ * or --font-sans; they only package recurring font-size/line-height/weight
+ * combos so dashboard organisms stop using inline arbitrary utilities.
+ */
+@layer components {
+  .text-h4-semibold {
+    font-size: 28px;
+    line-height: 40px;
+    font-weight: 600;
+  }
+
+  .text-paragraph-md {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 500;
+  }
+}
