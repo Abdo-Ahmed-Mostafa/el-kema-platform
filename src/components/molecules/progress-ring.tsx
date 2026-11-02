@@ -86,6 +86,26 @@ function ProgressRing({
           )}
         />
       </svg>
+      {/* Decorative loading spinner — a short arc that rotates continuously
+          around the ring. Purely decorative (aria-hidden); honours
+          prefers-reduced-motion via motion-reduce:animate-none. */}
+      <svg
+        aria-hidden
+        className="absolute size-full animate-spin -rotate-90 motion-reduce:animate-none"
+        viewBox="0 0 152 152"
+        fill="none"
+      >
+        <circle
+          cx={CENTER}
+          cy={CENTER}
+          r={RADIUS}
+          strokeWidth={STROKE_WIDTH}
+          strokeLinecap="round"
+          strokeDasharray={CIRCUMFERENCE}
+          strokeDashoffset={CIRCUMFERENCE * 0.75}
+          className={inverse ? "stroke-primary-foreground" : "stroke-primary"}
+        />
+      </svg>
       <span
         aria-hidden
         className={cn(

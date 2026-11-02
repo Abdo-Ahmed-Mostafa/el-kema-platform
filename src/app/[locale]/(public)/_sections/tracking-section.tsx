@@ -6,13 +6,12 @@ import { ProgressTrackingCard } from "@/components/organisms";
  * Home section 1 — "تابع تقدّمك في رحلتك التعليمية".
  *
  * A thin server-component wrapper: a heading block plus a responsive row of
- * three `ProgressTrackingCard` organisms (navy / teal / navy), all copy read
+ * two equal-width `ProgressTrackingCard` organisms (navy / teal), all copy read
  * from the `home.homePage.tracking` namespace.
  */
 const CARDS = [
   { key: "math", surface: "primary" as const },
   { key: "english", surface: "secondary" as const },
-  { key: "chemistry", surface: "primary" as const },
 ];
 
 export async function TrackingSection() {
@@ -28,7 +27,7 @@ export async function TrackingSection() {
           {t("subheading")}
         </p>
       </div>
-      <div className="grid w-full gap-6 lg:grid-cols-2 xl:grid-cols-3">
+      <div className="grid w-full gap-6 md:grid-cols-2">
         {CARDS.map(({ key, surface }) => (
           <ProgressTrackingCard
             key={key}

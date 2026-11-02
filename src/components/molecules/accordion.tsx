@@ -148,7 +148,7 @@ function AccordionItem({
         hidden={!open}
         data-slot="accordion-content"
         data-state={open ? "open" : "closed"}
-        className="text-body px-4 pb-4 text-sm"
+        className="mt-1 border-t border-border px-4 pt-3 pb-5 text-sm leading-5 text-body"
       >
         {/* body: paragraph-xsm — #52525a maps to the --text-body token (themes in dark) */}
         {children}

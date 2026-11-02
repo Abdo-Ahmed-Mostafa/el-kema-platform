@@ -11,7 +11,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { SearchBar } from "@/components/molecules";
+import { GraduationIcon } from "@/components/icons";
 import { Logo } from "./logo";
 import { NavLinks } from "./nav-links";
 import { ThemeToggle } from "./theme-toggle";
@@ -23,6 +23,14 @@ import { LocaleSwitcher } from "./locale-switcher";
  * Server Component: it reads translations on the server and renders links
  * statically. Interactive pieces (theme, locale, mobile sheet) are their own
  * client components composed in here.
+ *
+ * Layout matches Figma 451:1151 (RTL on screen → logically mirrored):
+ *  - inline-START edge: a single primary navy icon Button (login CTA).
+ *  - center: the nav links, visually centered regardless of the side zones.
+ *  - inline-END edge: the Logo.
+ * Surface is solid `bg-card` (#fafafa), ~92px tall, px-6, a bottom border and
+ * the shared `shadow-card` token. No search bar; locale/theme controls live in
+ * the mobile sheet so the desktop row matches Figma.
  */
 export async function Navbar() {
   const t = await getTranslations("nav");
@@ -36,36 +44,29 @@ export async function Navbar() {
   ];
 
   return (
-    // Figma 451:1151 — surface #fafafa (bg-card), padding x24/y12 (px-6 py-3),
-    // justify-between. Keep sticky + backdrop.
-    // NOTE: uses the shared `shadow-card` token (--shadow-card in globals.css:
-    // navy #123458 @ 12%, offset 0 4px, blur 10px) added in stage 4B.
-    <header className="bg-card/80 shadow-card sticky top-0 z-50 w-full backdrop-blur-sm">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-3">
-        <div className="flex items-center gap-8">
-          <Logo />
-          {/* Active-route marking lives in a client child so Navbar stays a
-              Server Component; links keep the same routes/labels shape. */}
-          <NavLinks links={links} />
-        </div>
+    <header className="bg-card shadow-card sticky top-0 z-50 w-full border-b border-border">
+      <div className="mx-auto flex min-h-[92px] max-w-7xl items-center justify-between gap-4 px-6 py-3">
+        {/* inline-START edge — primary navy icon button (login CTA). */}
+        <Button
+          asChild
+          size="icon"
+          aria-label={t("login")}
+          className="shrink-0"
+        >
+          <Link href={routes.login}>
+            <GraduationIcon aria-hidden />
+          </Link>
+        </Button>
 
-        {/* Search molecule (Figma shows search in the nav row). */}
-        <div className="hidden min-w-0 flex-1 justify-center lg:flex">
-          <SearchBar size="sm" className="max-w-xs" />
-        </div>
+        {/* center — nav links, centered in a flexible middle zone so the
+            side zones don't shift them off-center (mirrors in RTL/LTR for
+            free). Active-route marking lives in a client child so Navbar
+            stays a Server Component. */}
+        <NavLinks links={links} className="flex-1 justify-center" />
 
-        <div className="flex items-center gap-1">
-          <LocaleSwitcher />
-          <ThemeToggle />
-
-          <div className="hidden items-center gap-2 md:flex">
-            <Button asChild appearance="ghost" size="sm">
-              <Link href={routes.login}>{t("login")}</Link>
-            </Button>
-            <Button asChild size="sm">
-              <Link href={routes.register}>{t("register")}</Link>
-            </Button>
-          </div>
+        {/* inline-END edge — brand logo. */}
+        <div className="flex shrink-0 items-center gap-1">
+          <Logo className="hidden md:inline-flex" />
 
           {/* Mobile menu */}
           <Sheet>
@@ -97,6 +98,10 @@ export async function Navbar() {
                 ))}
               </nav>
               <div className="mt-auto flex flex-col gap-2 p-4">
+                <div className="flex items-center justify-between gap-2">
+                  <LocaleSwitcher />
+                  <ThemeToggle />
+                </div>
                 <Button asChild appearance="outline">
                   <Link href={routes.login}>{t("login")}</Link>
                 </Button>

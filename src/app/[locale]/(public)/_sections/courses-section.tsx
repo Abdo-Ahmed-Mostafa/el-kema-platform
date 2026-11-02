@@ -1,7 +1,15 @@
 import { getTranslations } from "next-intl/server";
 
 import { MediaInfoCard } from "@/components/organisms";
-import { StopwatchIcon, BookClosedIcon, PersonIcon } from "@/components/icons";
+import { Button } from "@/components/ui/button";
+import {
+  StopwatchIcon,
+  BookClosedIcon,
+  PersonIcon,
+  RightArrowIcon,
+} from "@/components/icons";
+import { Link } from "@/lib/i18n/navigation";
+import { routes } from "@/config/routes";
 
 /**
  * Home section 2 — "اكتشف الدورات التي تناسبك".
@@ -20,7 +28,7 @@ export async function CoursesSection() {
   const t = await getTranslations("home.homePage.courses");
 
   return (
-    <section className="flex w-full flex-col items-end gap-[60px]">
+    <section className="flex w-full flex-col items-center gap-[60px]">
       <div className="flex w-full flex-col items-end gap-3 text-end">
         <h2 className="text-[36px] leading-[48px] font-semibold text-primary">
           {t("heading")}
@@ -60,6 +68,12 @@ export async function CoursesSection() {
           />
         ))}
       </div>
+      <Button asChild appearance="ghost" variant="primary" size="lg">
+        <Link href={routes.courses}>
+          {t("viewAll")}
+          <RightArrowIcon aria-hidden />
+        </Link>
+      </Button>
     </section>
   );
 }

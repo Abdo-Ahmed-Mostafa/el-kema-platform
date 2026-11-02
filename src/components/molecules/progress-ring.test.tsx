@@ -37,4 +37,11 @@ describe("ProgressRing", () => {
       "100",
     );
   });
+
+  it("renders a decorative aria-hidden spinner element", () => {
+    const { container } = renderWithIntl(<ProgressRing value={40} />);
+    const spinner = container.querySelector(".animate-spin");
+    expect(spinner).not.toBeNull();
+    expect(spinner).toHaveAttribute("aria-hidden");
+  });
 });

@@ -8,6 +8,8 @@ import {
   PersonIcon,
   RightArrowIcon,
 } from "@/components/icons";
+import { Link } from "@/lib/i18n/navigation";
+import { routes } from "@/config/routes";
 
 /**
  * Home section 3 — "تعلّم على يد نخبة من المدرّسين".
@@ -64,9 +66,11 @@ export async function InstructorsSection() {
           />
         ))}
       </div>
-      <Button type="button" appearance="ghost" variant="primary" size="lg">
-        {t("viewAll")}
-        <RightArrowIcon aria-hidden />
+      <Button asChild appearance="ghost" variant="primary" size="lg">
+        <Link href={routes.teachers}>
+          {t("viewAll")}
+          <RightArrowIcon aria-hidden />
+        </Link>
       </Button>
     </section>
   );
