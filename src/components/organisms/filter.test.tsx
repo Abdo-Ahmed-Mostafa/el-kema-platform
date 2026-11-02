@@ -86,4 +86,24 @@ describe("FilterGroup", () => {
     await user.click(screen.getByRole("button", { name: "Active" }));
     expect(onValueChange).toHaveBeenCalledWith(["all", "active"]);
   });
+
+  it("moves focus between chips with ArrowRight (roving focus)", async () => {
+    const user = userEvent.setup();
+    renderWithIntl(<FilterGroup label="Status" options={options} value="" />);
+    const all = screen.getByRole("button", { name: "All" });
+    const active = screen.getByRole("button", { name: "Active" });
+    all.focus();
+    expect(all).toHaveFocus();
+    await user.keyboard("{ArrowRight}");
+    expect(active).toHaveFocus();
+  });
+
+  it("jumps to the last chip with End", async () => {
+    const user = userEvent.setup();
+    renderWithIntl(<FilterGroup label="Status" options={options} value="" />);
+    const all = screen.getByRole("button", { name: "All" });
+    all.focus();
+    await user.keyboard("{End}");
+    expect(screen.getByRole("button", { name: "Expired" })).toHaveFocus();
+  });
 });

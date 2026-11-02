@@ -40,4 +40,24 @@ describe("Button", () => {
     render(<Button size="lg">Big</Button>);
     expect(screen.getByRole("button", { name: "Big" })).toBeInTheDocument();
   });
+
+  it("uses the exact Figma inverse tones (primary-light / -light-strong)", () => {
+    const { rerender } = render(
+      <Button variant="inverse" appearance="outline">
+        Inv
+      </Button>,
+    );
+    let btn = screen.getByRole("button", { name: "Inv" });
+    expect(btn).toHaveClass("hover:bg-primary-light");
+    expect(btn).toHaveClass("active:bg-primary-light-strong");
+
+    rerender(
+      <Button variant="inverse" appearance="ghost">
+        Inv
+      </Button>,
+    );
+    btn = screen.getByRole("button", { name: "Inv" });
+    expect(btn).toHaveClass("hover:bg-primary-light");
+    expect(btn).toHaveClass("active:bg-primary-light-strong");
+  });
 });

@@ -148,9 +148,9 @@ function AccordionItem({
         hidden={!open}
         data-slot="accordion-content"
         data-state={open ? "open" : "closed"}
-        className="px-4 pb-4 text-sm text-[#52525a] dark:text-zinc-400"
+        className="text-body px-4 pb-4 text-sm"
       >
-        {/* body: paragraph-xsm, #52525a is not a token (figma-molecules.md) */}
+        {/* body: paragraph-xsm — #52525a maps to the --text-body token (themes in dark) */}
         {children}
       </div>
     </div>

@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useTranslations } from "next-intl";
 import { cva, type VariantProps } from "class-variance-authority";
 
 import { cn } from "@/lib/utils/cn";
@@ -17,6 +18,10 @@ import { InfoIcon } from "@/components/icons";
  * Every status color derives from one `status` variant. Content is
  * prop-driven and composes an icon ReactNode without restyling it. Layout
  * uses logical properties (start/end) so it mirrors in RTL/LTR.
+ *
+ * a11y: status is NOT conveyed by color alone — a visually-hidden status word
+ * (localised, overridable via `statusLabel`) is announced to screen readers so
+ * the item's state is perceivable without seeing the colored bar/chip.
  */
 const activityItemVariants = cva(
   "flex items-center gap-3 border-b border-border px-6 py-6 text-start",
@@ -76,6 +81,11 @@ type ActivityItemProps = Omit<React.ComponentProps<"li">, "children"> &
     icon?: React.ReactNode;
     /** Show the 4px separator dot between action and time. */
     showDot?: boolean;
+    /**
+     * Visually-hidden status word for screen readers (non-color affordance).
+     * Falls back to the localised label for the active `status`.
+     */
+    statusLabel?: React.ReactNode;
   };
 
 const ActivityItem = React.forwardRef<HTMLLIElement, ActivityItemProps>(
@@ -88,11 +98,14 @@ const ActivityItem = React.forwardRef<HTMLLIElement, ActivityItemProps>(
       time,
       icon,
       showDot = true,
+      statusLabel,
       ...props
     },
     ref,
   ) {
+    const t = useTranslations("organisms.dashboard.activity.status");
     const hasMeta = action != null || time != null;
+    const resolvedStatusLabel = statusLabel ?? t(status ?? "secondary");
 
     return (
       <li
@@ -104,7 +117,10 @@ const ActivityItem = React.forwardRef<HTMLLIElement, ActivityItemProps>(
       >
         <span aria-hidden className={cn(dotVariants({ status }))} />
         <div className="flex flex-1 flex-col gap-3">
-          <p className="text-base leading-6 font-medium text-primary">{name}</p>
+          <p className="text-base leading-6 font-medium text-primary">
+            <span className="sr-only">{resolvedStatusLabel}: </span>
+            {name}
+          </p>
           {hasMeta ? (
             <div className="flex items-center gap-2">
               {action != null ? (

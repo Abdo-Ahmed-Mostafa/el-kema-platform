@@ -3,6 +3,7 @@ export { Logo } from "./logo";
 export { ThemeToggle } from "./theme-toggle";
 export { LocaleSwitcher } from "./locale-switcher";
 export { Navbar } from "./navbar";
+export { NavLinks, type NavLink } from "./nav-links";
 export { Footer } from "./footer";
 export { JsonLd } from "./json-ld";
 export { Spinner } from "./spinner";

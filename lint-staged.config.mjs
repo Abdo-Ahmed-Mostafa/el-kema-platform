@@ -10,7 +10,9 @@
  * ESLint is scoped to staged JS/TS files (by running `eslint` project-wide with
  * its own ignore rules); Prettier formats staged source files project-wide.
  */
-export default {
+const config = {
   "*.{ts,tsx}": () => ["eslint --fix .", "prettier --write ."],
   "*.{js,mjs,cjs,json,css,md}": () => ["prettier --write ."],
 };
+
+export default config;

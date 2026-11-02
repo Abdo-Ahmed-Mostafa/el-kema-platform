@@ -77,9 +77,7 @@
     "hidePassword": "Hide password",
     "search": "Search",
     "searchPlaceholder": "Search",
-    "progress": "{value}% complete",
-    "expand": "Expand",
-    "collapse": "Collapse"
+    "progress": "{value}% complete"
   },
   "nav": {
     "home": "Home",
@@ -198,7 +196,12 @@
         "cancelled": "Cancelled"
       },
       "activity": {
-        "title": "Recent activity"
+        "title": "Recent activity",
+        "status": {
+          "secondary": "Update",
+          "error": "Error",
+          "warning": "Warning"
+        }
       },
       "report": {
         "course": "Course",

@@ -78,7 +78,7 @@ const buttonVariants = cva(
         variant: "inverse",
         appearance: "outline",
         class:
-          "border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 active:bg-primary-foreground/20",
+          "border-primary-foreground text-primary-foreground hover:bg-primary-light active:bg-primary-light-strong",
       },
       // --- Ghost (Transparent) ---
       {
@@ -103,7 +103,7 @@ const buttonVariants = cva(
         variant: "inverse",
         appearance: "ghost",
         class:
-          "text-primary-foreground hover:bg-primary-foreground/10 active:bg-primary-foreground/20",
+          "text-primary-foreground hover:bg-primary-light active:bg-primary-light-strong",
       },
     ],
     defaultVariants: {

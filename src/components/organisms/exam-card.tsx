@@ -30,8 +30,13 @@ type ExamCardProps = Omit<React.ComponentProps<"article">, "title"> & {
   gradeLevel?: React.ReactNode;
   /** Status badge label; omit to hide. */
   badgeLabel?: React.ReactNode;
-  /** Status badge color variant. */
-  badgeVariant?: "primary" | "secondary" | "accent" | "warning" | "error";
+  /**
+   * Status badge color variant. By design this mirrors the Badge atom's
+   * `variant` union (which uses "error", not the Button atom's "destructive")
+   * because the value is forwarded straight to <Badge variant={...}>; keeping
+   * the two in lock-step is the intentional, consistent choice.
+   */
+  badgeVariant?: React.ComponentProps<typeof Badge>["variant"];
   /** Questions count. */
   questions?: React.ReactNode;
   /** Duration text. */

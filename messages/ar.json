@@ -77,9 +77,7 @@
     "hidePassword": "إخفاء كلمة المرور",
     "search": "بحث",
     "searchPlaceholder": "ابحث",
-    "progress": "{value}% مكتمل",
-    "expand": "توسيع",
-    "collapse": "طي"
+    "progress": "{value}% مكتمل"
   },
   "nav": {
     "home": "الرئيسية",
@@ -198,7 +196,12 @@
         "cancelled": "ملغي"
       },
       "activity": {
-        "title": "النشاط الأخير"
+        "title": "النشاط الأخير",
+        "status": {
+          "secondary": "تحديث",
+          "error": "خطأ",
+          "warning": "تحذير"
+        }
       },
       "report": {
         "course": "الكورس",

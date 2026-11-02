@@ -14,7 +14,50 @@ type PaginationProps = Omit<React.ComponentProps<"nav">, "onChange"> & {
   pageCount: number;
   /** Fires with the requested 1-based page. */
   onPageChange?: (page: number) => void;
+  /**
+   * How many page numbers to show around the current page (each side) before
+   * collapsing the rest behind an ellipsis. Defaults to 1.
+   */
+  siblingCount?: number;
 };
+
+const ELLIPSIS = "ellipsis";
+
+/**
+ * Build the page item list, collapsing long runs behind an ellipsis.
+ * The first and last page are always shown, plus a window of `siblingCount`
+ * pages on each side of the current page. Returns page numbers interleaved
+ * with "ellipsis" markers.
+ */
+function buildPageItems(
+  page: number,
+  pageCount: number,
+  siblingCount: number,
+): (number | typeof ELLIPSIS)[] {
+  if (pageCount <= 0) return [];
+  // Show every page when the full set fits without collapsing.
+  // 2 ends + 2 ellipses + current + 2*siblings is the threshold.
+  const totalSlots = siblingCount * 2 + 5;
+  if (pageCount <= totalSlots) {
+    return Array.from({ length: pageCount }, (_, i) => i + 1);
+  }
+
+  const left = Math.max(page - siblingCount, 1);
+  const right = Math.min(page + siblingCount, pageCount);
+  const showLeftEllipsis = left > 2;
+  const showRightEllipsis = right < pageCount - 1;
+
+  const items: (number | typeof ELLIPSIS)[] = [1];
+  if (showLeftEllipsis) items.push(ELLIPSIS);
+
+  const start = showLeftEllipsis ? left : 2;
+  const end = showRightEllipsis ? right : pageCount - 1;
+  for (let p = start; p <= end; p++) items.push(p);
+
+  if (showRightEllipsis) items.push(ELLIPSIS);
+  items.push(pageCount);
+  return items;
+}
 
 /**
  * Pagination — numbered page controls with Previous/Next affordances.
@@ -29,13 +72,14 @@ function Pagination({
   page,
   pageCount,
   onPageChange,
+  siblingCount = 1,
   ...props
 }: PaginationProps) {
   const t = useTranslations("molecules");
 
-  const pages = React.useMemo(
-    () => Array.from({ length: Math.max(0, pageCount) }, (_, i) => i + 1),
-    [pageCount],
+  const items = React.useMemo(
+    () => buildPageItems(page, Math.max(0, pageCount), siblingCount),
+    [page, pageCount, siblingCount],
   );
 
   const go = (next: number) => {
@@ -61,16 +105,28 @@ function Pagination({
         <LeftArrowIcon className="rtl:rotate-180" />
       </Button>
       <ul className="flex items-center gap-2">
-        {pages.map((p) => {
-          const isCurrent = p === page;
+        {items.map((item, index) => {
+          if (item === ELLIPSIS) {
+            return (
+              <li
+                key={`ellipsis-${index}`}
+                data-slot="pagination-ellipsis"
+                aria-hidden
+                className="inline-flex size-10 items-center justify-center text-xs font-medium text-muted-foreground"
+              >
+                &#8230;
+              </li>
+            );
+          }
+          const isCurrent = item === page;
           return (
-            <li key={p}>
+            <li key={item}>
               <button
                 type="button"
                 data-slot="pagination-item"
                 aria-current={isCurrent ? "page" : undefined}
-                aria-label={t("page", { page: p })}
-                onClick={() => go(p)}
+                aria-label={t("page", { page: item })}
+                onClick={() => go(item)}
                 className={cn(
                   "inline-flex size-10 items-center justify-center rounded-full text-xs font-medium transition-colors outline-none focus-visible:ring-ring/50 focus-visible:ring-[3px]",
                   isCurrent
@@ -78,7 +134,7 @@ function Pagination({
                     : "bg-card text-primary hover:bg-primary-light",
                 )}
               >
-                {p}
+                {item}
               </button>
             </li>
           );

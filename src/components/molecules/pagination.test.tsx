@@ -46,4 +46,27 @@ describe("Pagination", () => {
     renderWithIntl(<Pagination page={1} pageCount={3} />);
     expect(screen.getByRole("button", { name: "Previous" })).toBeDisabled();
   });
+
+  it("renders every page when the count is small (no ellipsis)", () => {
+    renderWithIntl(<Pagination page={1} pageCount={5} />);
+    expect(
+      document.querySelectorAll('[data-slot="pagination-item"]'),
+    ).toHaveLength(5);
+    expect(
+      document.querySelector('[data-slot="pagination-ellipsis"]'),
+    ).toBeNull();
+  });
+
+  it("collapses large page counts behind ellipses but keeps the ends", () => {
+    renderWithIntl(<Pagination page={10} pageCount={50} />);
+    // First and last page remain reachable.
+    expect(screen.getByRole("button", { name: "Page 1" })).toBeInTheDocument();
+    expect(screen.getByRole("button", { name: "Page 50" })).toBeInTheDocument();
+    // Both leading and trailing ellipses are present.
+    expect(
+      document.querySelectorAll('[data-slot="pagination-ellipsis"]').length,
+    ).toBe(2);
+    // The window around the current page is shown.
+    expect(screen.getByRole("button", { name: "Page 10" })).toBeInTheDocument();
+  });
 });

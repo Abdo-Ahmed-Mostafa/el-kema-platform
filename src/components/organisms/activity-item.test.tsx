@@ -50,4 +50,21 @@ describe("ActivityItem", () => {
     );
     expect(screen.getByTestId("custom-icon")).toBeInTheDocument();
   });
+
+  it("conveys status with a non-color, screen-reader affordance", () => {
+    renderWithIntl(<ActivityItem status="error" name="Payment failed" />);
+    // The localised status word is announced alongside the name (not color-only).
+    expect(screen.getByText("Error:")).toBeInTheDocument();
+  });
+
+  it("accepts an explicit statusLabel override", () => {
+    renderWithIntl(
+      <ActivityItem
+        status="warning"
+        name="Low balance"
+        statusLabel="Needs attention"
+      />,
+    );
+    expect(screen.getByText("Needs attention:")).toBeInTheDocument();
+  });
 });
