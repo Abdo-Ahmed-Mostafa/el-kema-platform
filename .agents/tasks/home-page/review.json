@@ -1,0 +1,10 @@
+{
+  "verdict": "APPROVED",
+  "findings": [
+    "Progress CTA width cap: ProgressTrackingCard caps the CTA at max-w-[276px] while Figma shows it spanning the content column; verify against the frame and widen if it reads narrow. (possible)",
+    "home namespace not parity-tested: home.homePage ar/en parity is maintained by hand and not guarded by the messages-parity test (which only checks the organisms subtree); parity is currently exact (110/110) but future edits can silently drift. Consider extending the parity test to cover home. (likely)",
+    "Course/instructor cover reuse: courses and instructors reuse the same three cover PNGs; matches Figma (identical nodes) and intentional per the plan, but swap in distinct instructor photos if real content differs. (confirmed, informational)",
+    "Unrelated auth changes in working tree: uncommitted auth edits (layout, forms, schemas, hooks) are unrelated to the home page; keep them out of the home-page commit and review them under their own task. (confirmed)"
+  ],
+  "reviewDoc": "d:\\devs\\El-Kema-platform\\.agents\\tasks\\home-page\\review.md"
+}
