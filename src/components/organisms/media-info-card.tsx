@@ -82,7 +82,7 @@ const MediaInfoCard = React.forwardRef<HTMLElement, MediaInfoCardProps>(
         data-slot="media-info-card"
         aria-labelledby={headingId}
         className={cn(
-          "group relative flex w-full cursor-pointer flex-col gap-6 rounded-card-xl border-[1.5px] border-border bg-card p-4 text-start shadow-card transition-[color,border-color,box-shadow] hover:border-primary hover:shadow-xl",
+          "group relative flex w-full cursor-pointer flex-col gap-6 rounded-card-xl border-[1.5px] border-border p-4 text-start transition-[color,background-color,border-color,box-shadow] hover:border-primary hover:bg-[#eff9f9] hover:shadow-card dark:hover:bg-primary/10",
           className,
         )}
         {...props}
@@ -105,7 +105,9 @@ const MediaInfoCard = React.forwardRef<HTMLElement, MediaInfoCardProps>(
             >
               {title}
             </h3>
-            <p className="w-full text-sm leading-5 text-body">{subtitle}</p>
+            <p className="w-full text-sm leading-5 text-body transition-[font-size,font-weight] group-hover:text-base group-hover:font-bold">
+              {subtitle}
+            </p>
           </div>
 
           <div className="flex flex-wrap items-center justify-start gap-3">
