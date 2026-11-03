@@ -175,6 +175,7 @@ const ProgressTrackingCard = React.forwardRef<
       <ProgressRing
         value={value}
         state="inverse"
+        showValueArc={false}
         className="hidden size-[205px] shrink-0 sm:grid"
       />
     </article>

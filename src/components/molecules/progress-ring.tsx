@@ -34,12 +34,19 @@ type ProgressRingProps = React.ComponentProps<"div"> & {
    * color; "inverse" renders light-on-primary for use on dark surfaces.
    */
   state?: "default" | "inverse";
+  /**
+   * Whether to draw the static arc representing `value`. Defaults to true.
+   * Set false to show only the track + the rotating loading spinner (used by
+   * the home tracking cards, where the static arc read as a stray half-ring).
+   */
+  showValueArc?: boolean;
 };
 
 function ProgressRing({
   className,
   value,
   state = "default",
+  showValueArc = true,
   ...props
 }: ProgressRingProps) {
   const t = useTranslations("molecules");
@@ -72,19 +79,21 @@ function ProgressRing({
           strokeWidth={STROKE_WIDTH}
           className={inverse ? "stroke-primary-foreground/30" : "stroke-muted"}
         />
-        <circle
-          cx={CENTER}
-          cy={CENTER}
-          r={RADIUS}
-          strokeWidth={STROKE_WIDTH}
-          strokeLinecap="round"
-          strokeDasharray={CIRCUMFERENCE}
-          strokeDashoffset={dashOffset}
-          className={cn(
-            "transition-[stroke-dashoffset] duration-300",
-            inverse ? "stroke-primary-foreground" : "stroke-primary",
-          )}
-        />
+        {showValueArc ? (
+          <circle
+            cx={CENTER}
+            cy={CENTER}
+            r={RADIUS}
+            strokeWidth={STROKE_WIDTH}
+            strokeLinecap="round"
+            strokeDasharray={CIRCUMFERENCE}
+            strokeDashoffset={dashOffset}
+            className={cn(
+              "transition-[stroke-dashoffset] duration-300",
+              inverse ? "stroke-primary-foreground" : "stroke-primary",
+            )}
+          />
+        ) : null}
       </svg>
       {/* Decorative loading spinner — a short arc that slowly rotates around
           the ring. Purely decorative (aria-hidden); honours

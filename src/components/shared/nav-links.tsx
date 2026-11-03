@@ -35,9 +35,14 @@ export function NavLinks({ links, className }: NavLinksProps) {
           key={link.href}
           href={link.href}
           aria-current={isActive(link.href) ? "page" : undefined}
-          // Figma label states Default/Hover/Pressed — paragraph-md 18/28
-          // medium (arbitrary; tokens unchanged). aria-current → pressed.
-          className="text-[18px] leading-7 font-medium text-muted-foreground transition-colors hover:text-primary aria-[current=page]:text-primary-pressed"
+          // Figma Nav Bar/Label (451:1034), states Default/Hover/Pressed:
+          // paragraph-md 18/28 medium (arbitrary; tokens unchanged).
+          // - Default: muted label, transparent 2px bottom border (reserves
+          //   space so hover/active never shift layout).
+          // - Hover: teal (#14b8a6 = secondary) label + 2px teal bottom border.
+          // - Pressed/active (aria-current): navy (#123458 = primary) label +
+          //   2px navy bottom border.
+          className="border-b-2 border-transparent pb-1 text-[18px] leading-7 font-medium text-muted-foreground transition-colors hover:border-secondary hover:text-secondary aria-[current=page]:border-primary aria-[current=page]:text-primary"
         >
           {link.label}
         </Link>
