@@ -62,6 +62,13 @@ describe("register schema", () => {
     expect(schema.safeParse({ ...base, thirdName: "" }).success).toBe(false);
   });
 
+  it("rejects a name part shorter than 2 characters", () => {
+    expect(schema.safeParse({ ...base, firstName: "A" }).success).toBe(false);
+    expect(schema.safeParse({ ...base, lastName: "B" }).success).toBe(false);
+    // Two characters is accepted.
+    expect(schema.safeParse({ ...base, firstName: "Ab" }).success).toBe(true);
+  });
+
   it("rejects an invalid mobile number", () => {
     expect(schema.safeParse({ ...base, phone: "12345" }).success).toBe(false);
   });

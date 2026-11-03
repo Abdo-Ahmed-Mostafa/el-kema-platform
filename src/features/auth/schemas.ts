@@ -26,10 +26,20 @@ export function createLoginSchema(t: Translator) {
  */
 export function createRegisterSchema(t: Translator) {
   return z.object({
-    firstName: z.string().min(1, t("firstNameRequired")),
-    secondName: z.string().min(1, t("secondNameRequired")),
-    thirdName: z.string().min(1, t("thirdNameRequired")),
-    lastName: z.string().min(1, t("lastNameRequired")),
+    // Every name part is required and must be at least 2 characters.
+    firstName: z
+      .string()
+      .min(1, t("firstNameRequired"))
+      .min(2, t("firstNameMin")),
+    secondName: z
+      .string()
+      .min(1, t("secondNameRequired"))
+      .min(2, t("secondNameMin")),
+    thirdName: z
+      .string()
+      .min(1, t("thirdNameRequired"))
+      .min(2, t("thirdNameMin")),
+    lastName: z.string().min(1, t("lastNameRequired")).min(2, t("lastNameMin")),
     // Egyptian mobile: exactly 11 digits, 01 followed by a valid operator
     // prefix (0,1,2,5) and 8 more digits (01xxxxxxxxx). The input is restricted
     // to digits with maxLength 11, so no +20 / 0020 country prefix is typed —

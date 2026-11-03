@@ -1,10 +1,10 @@
 "use client";
 
-import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 import { Loader2Icon } from "lucide-react";
 
+import { useAppForm } from "@/hooks";
 import { Link } from "@/lib/i18n/navigation";
 import { routes } from "@/config/routes";
 import { Button } from "@/components/ui/button";
@@ -28,7 +28,7 @@ export function LoginForm() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<LoginValues>({
+  } = useAppForm<LoginValues>({
     resolver: zodResolver(createLoginSchema(tv)),
     defaultValues: { email: "", password: "", rememberMe: false },
   });

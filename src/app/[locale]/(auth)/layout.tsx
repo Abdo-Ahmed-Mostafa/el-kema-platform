@@ -1,7 +1,8 @@
-import Image from "next/image";
 import { setRequestLocale } from "next-intl/server";
 
 import { getDirection } from "@/config/locales";
+import { Navbar } from "@/components/shared/navbar";
+import { AuthHero } from "@/features/auth";
 
 /**
  * Auth shell (Figma split-screen): a centered row pairing a decorative hero
@@ -22,6 +23,10 @@ import { getDirection } from "@/config/locales";
  * reverse under the document's RTL direction (Arabic is the default locale)
  * and mirror the whole composition. The card column restores the locale
  * direction so its internals (text, fields, icons) stay RTL for Arabic.
+ *
+ * The sticky public Navbar is rendered here too (per product decision) so
+ * users can always navigate from the auth screens. The Figma auth frames
+ * themselves have no navbar, so this intentionally diverges from Figma.
  */
 export default async function AuthLayout({
   children,
@@ -31,28 +36,27 @@ export default async function AuthLayout({
   setRequestLocale(locale);
 
   return (
-    <main
-      id="main-content"
-      className="flex flex-1 items-center justify-center px-4 py-12"
-    >
-      <div dir="ltr" className="flex w-full max-w-[1280px] items-stretch gap-6">
-        <div className="relative hidden w-[628px] shrink-0 self-stretch overflow-hidden rounded-card-xl lg:block">
-          <Image
-            src="/auth/hero.png"
-            alt=""
-            fill
-            priority
-            sizes="628px"
-            className="object-cover"
-          />
-        </div>
+    <>
+      <Navbar />
+      <main
+        id="main-content"
+        className="flex flex-1 items-center justify-center px-4 py-12"
+      >
         <div
-          dir={getDirection(locale)}
-          className="flex min-w-0 flex-1 flex-col items-center gap-12 rounded-card-xl border border-card-auth-border bg-card-auth-surface p-6"
+          dir="ltr"
+          className="flex w-full max-w-[1280px] items-stretch gap-6"
         >
-          {children}
+          <div className="relative hidden w-[628px] shrink-0 self-stretch overflow-hidden rounded-card-xl lg:block">
+            <AuthHero />
+          </div>
+          <div
+            dir={getDirection(locale)}
+            className="flex min-w-0 flex-1 flex-col items-center gap-12 rounded-card-xl border border-card-auth-border bg-card-auth-surface p-6"
+          >
+            {children}
+          </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </>
   );
 }

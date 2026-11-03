@@ -1,11 +1,12 @@
 "use client";
 
 import * as React from "react";
-import { Controller, useForm } from "react-hook-form";
+import { Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 import { Loader2Icon } from "lucide-react";
 
+import { useAppForm } from "@/hooks";
 import type { Role } from "@/config/roles";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -58,7 +59,7 @@ export function RegisterForm() {
     trigger,
     setValue,
     formState: { errors },
-  } = useForm<RegisterValues>({
+  } = useAppForm<RegisterValues>({
     resolver: zodResolver(createRegisterSchema(tv)),
     defaultValues: {
       firstName: "",
@@ -111,7 +112,7 @@ export function RegisterForm() {
                 size="md"
                 autoComplete="given-name"
                 placeholder={t("firstNamePlaceholder")}
-                endIcon={<PersonIcon />}
+                startIcon={<PersonIcon />}
                 aria-invalid={!!errors.firstName}
                 {...register("firstName")}
               />
@@ -132,7 +133,7 @@ export function RegisterForm() {
                 size="md"
                 autoComplete="additional-name"
                 placeholder={t("secondNamePlaceholder")}
-                endIcon={<PersonIcon />}
+                startIcon={<PersonIcon />}
                 aria-invalid={!!errors.secondName}
                 {...register("secondName")}
               />
@@ -154,7 +155,7 @@ export function RegisterForm() {
                 id="thirdName"
                 size="md"
                 placeholder={t("thirdNamePlaceholder")}
-                endIcon={<PersonIcon />}
+                startIcon={<PersonIcon />}
                 aria-invalid={!!errors.thirdName}
                 {...register("thirdName")}
               />
@@ -175,7 +176,7 @@ export function RegisterForm() {
                 size="md"
                 autoComplete="family-name"
                 placeholder={t("lastNamePlaceholder")}
-                endIcon={<PersonIcon />}
+                startIcon={<PersonIcon />}
                 aria-invalid={!!errors.lastName}
                 {...register("lastName")}
               />
@@ -198,7 +199,7 @@ export function RegisterForm() {
               type="tel"
               autoComplete="tel"
               placeholder={t("phonePlaceholder")}
-              endIcon={<PhoneIcon />}
+              startIcon={<PhoneIcon />}
               aria-invalid={!!errors.phone}
               {...register("phone")}
               {...phoneNumeric}
@@ -217,7 +218,7 @@ export function RegisterForm() {
               id="nationalId"
               size="md"
               placeholder={t("nationalIdPlaceholder")}
-              endIcon={<CardIdIcon />}
+              startIcon={<CardIdIcon />}
               aria-invalid={!!errors.nationalId}
               {...register("nationalId")}
               {...nationalIdNumeric}
