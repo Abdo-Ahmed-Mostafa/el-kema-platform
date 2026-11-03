@@ -130,7 +130,7 @@ function AccordionItem({
           aria-expanded={open}
           aria-controls={panelId}
           onClick={() => toggle(value)}
-          className="group/trigger flex w-full items-center justify-between gap-4 px-4 py-4 text-start text-[20px] leading-8 font-medium text-foreground transition-colors outline-none hover:bg-primary hover:text-primary-foreground focus-visible:ring-ring/50 focus-visible:ring-[3px] data-[state=open]:text-primary"
+          className="group/trigger flex w-full items-center justify-between gap-4 px-4 py-4 text-start text-[20px] leading-8 font-medium text-foreground antialiased transition-colors outline-none hover:bg-primary hover:text-primary-foreground focus-visible:ring-ring/50 focus-visible:ring-[3px] data-[state=open]:text-primary"
         >
           {/* paragraph-lg (20/32) — not a token; arbitrary per figma-molecules.md */}
           <span>{title}</span>
