@@ -29,8 +29,9 @@ import { LocaleSwitcher } from "./locale-switcher";
  *  - center: the nav links, visually centered regardless of the side zones.
  *  - inline-END edge: the Logo.
  * Surface is solid `bg-card` (#fafafa), ~92px tall, px-6, a bottom border and
- * the shared `shadow-card` token. No search bar; locale/theme controls live in
- * the mobile sheet so the desktop row matches Figma.
+ * the shared `shadow-card` token. No search bar. The theme (dark/light) and
+ * locale (ar/en) controls sit in the inline-END zone next to the logo on
+ * desktop, and also inside the mobile sheet for small screens.
  */
 export async function Navbar() {
   const t = await getTranslations("nav");
@@ -64,8 +65,14 @@ export async function Navbar() {
             stays a Server Component. */}
         <NavLinks links={links} className="flex-1 justify-center" />
 
-        {/* inline-END edge — brand logo. */}
+        {/* inline-END edge — theme + locale controls and the brand logo. */}
         <div className="flex shrink-0 items-center gap-1">
+          {/* Desktop theme (dark/light) + locale (ar/en) controls. */}
+          <div className="hidden items-center gap-1 md:flex">
+            <ThemeToggle />
+            <LocaleSwitcher />
+          </div>
+
           <Logo className="hidden md:inline-flex" />
 
           {/* Mobile menu */}
