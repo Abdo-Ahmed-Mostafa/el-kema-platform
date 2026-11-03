@@ -1,8 +1,0 @@
-{
-  "verdict": "APPROVED",
-  "findings": [
-    "Input Filled state missing (confirmed, non-blocking): the Figma Input spec lists Default/Hover/Filled but only Default and Hover are implemented; the Filled state (bg #5688b8 -> --input, text #fafafa) has no code path and the --input token is defined but unused. Add a filled variant/prop if required, or confirm it's deferred.",
-    "Inverse outline/ghost use an un-specified approximation (confirmed, non-blocking): Button inverse outline/ghost hover/active use primary-foreground/10 and /20; the token doc defines no inverse outline/ghost light values, so this is a plan-acknowledged fill. Confirm against Figma whether inverse outline/ghost are actually used."
-  ],
-  "reviewDoc": "d:\\devs\\El-Kema-platform\\.agents\\tasks\\stage-2a-atoms\\review.md"
-}

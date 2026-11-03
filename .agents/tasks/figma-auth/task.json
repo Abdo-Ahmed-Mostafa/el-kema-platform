@@ -1,7 +1,0 @@
-{
-  "task_id": "task-figma-auth",
-  "task_description": "Integrate the Figma AUTH screens (Login, multi-step Sign Up, Forgot Password) into the El-Kema Next.js app pixel-perfect (1px-accurate), using the already-built design system (atoms/molecules/tokens). First real page-adoption task for the design system. Add additive Card Authentication tokens, build the shared split-screen auth shell, then Login, the general multi-step Sign Up, and Forgot Password. Reuse the existing src/features/auth form layer (zod schemas, RHF, hooks, api) without changing validation/submit contracts or public exports. All copy via next-intl auth namespace (ar + en in sync), RTL default, logical properties only, light + dark.",
-  "status": "completed",
-  "feature_order": ["FEAT-001", "FEAT-002", "FEAT-003", "FEAT-004"],
-  "blocked_reason": null
-}

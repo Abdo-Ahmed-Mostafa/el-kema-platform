@@ -1,7 +1,0 @@
-{
-  "task_id": "task-home-navbar-fixes",
-  "task_description": "Fix six visual/behavior bugs on the El-Kema Home page (\"/\") and the shared public Navbar so they match Figma pixel-accurately: (1) tracking band equal-width 2-card row + spinning inner progress ring; (2) add missing 'discover more' CTAs to courses + instructors sections; (3) start-align the offers band text; (4) fix FAQ expanded-answer spacing/typography; (5) RTL/LTR logical-property audit across Home + new organisms; (6) rework the Navbar to match node 451:1151. No design-token or font changes; no Landing Page rebuild. Keep ar.json + en.json in sync, light + dark, prefers-reduced-motion respected.",
-  "status": "pending",
-  "feature_order": ["FEAT-001", "FEAT-002"],
-  "blocked_reason": null
-}

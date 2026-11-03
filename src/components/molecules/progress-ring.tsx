@@ -86,12 +86,14 @@ function ProgressRing({
           )}
         />
       </svg>
-      {/* Decorative loading spinner — a short arc that rotates continuously
-          around the ring. Purely decorative (aria-hidden); honours
-          prefers-reduced-motion via motion-reduce:animate-none. */}
+      {/* Decorative loading spinner — a short arc that slowly rotates around
+          the ring. Purely decorative (aria-hidden); honours
+          prefers-reduced-motion via motion-reduce:animate-none. A short dash
+          (~12% of the circumference) reads as a moving indicator rather than a
+          second full ring; the slow 6s duration keeps it calm. */}
       <svg
         aria-hidden
-        className="absolute size-full animate-spin -rotate-90 motion-reduce:animate-none"
+        className="absolute size-full -rotate-90 animate-spin [animation-duration:6s] motion-reduce:animate-none"
         viewBox="0 0 152 152"
         fill="none"
       >
@@ -101,8 +103,7 @@ function ProgressRing({
           r={RADIUS}
           strokeWidth={STROKE_WIDTH}
           strokeLinecap="round"
-          strokeDasharray={CIRCUMFERENCE}
-          strokeDashoffset={CIRCUMFERENCE * 0.75}
+          strokeDasharray={`${CIRCUMFERENCE * 0.12} ${CIRCUMFERENCE}`}
           className={inverse ? "stroke-primary-foreground" : "stroke-primary"}
         />
       </svg>
