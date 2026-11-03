@@ -10,8 +10,9 @@ import { Carousel } from "@/components/shared";
  * three equal-width `ProgressTrackingCard` organisms (navy / teal / navy), all
  * copy read from the `home.homePage.tracking` namespace. The cards stay
  * server-rendered and are composed as children of the client `Carousel`, which
- * owns the scroll-snap + prev/next interactivity. Each card keeps its Figma
- * 628px width so three of them overflow the 1280px container and scroll.
+ * owns the scroll-snap + prev/next interactivity. Each card is sized to half
+ * the carousel width (minus half the 24px gap) so exactly TWO full cards show
+ * at once and the third scrolls in; on mobile each card is full-width.
  */
 const CARDS = [
   { key: "math", surface: "primary" as const },
@@ -32,7 +33,10 @@ export async function TrackingSection() {
           {t("subheading")}
         </p>
       </div>
-      <Carousel label={t("heading")} itemClassName="w-full max-w-[628px]">
+      <Carousel
+        label={t("heading")}
+        itemClassName="w-[calc(100%-24px)] sm:w-[calc(50%-12px)]"
+      >
         {CARDS.map(({ key, surface }) => (
           <ProgressTrackingCard
             key={key}

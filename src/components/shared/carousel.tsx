@@ -40,6 +40,12 @@ type CarouselProps = {
   controlsPlacement?: "overlay" | "below";
   /** Extra classes for the controls container. */
   controlsClassName?: string;
+  /**
+   * Whether to render the prev/next buttons. Swipe/scroll always works; set
+   * this false when every item already fits on screen so the arrows aren't
+   * shown with nothing to scroll to. Defaults to true.
+   */
+  showControls?: boolean;
 };
 
 /** Reads whether the browser currently prefers reduced motion. */
@@ -59,6 +65,7 @@ function Carousel({
   itemClassName,
   controlsPlacement = "overlay",
   controlsClassName,
+  showControls = true,
 }: CarouselProps) {
   const t = useTranslations("common");
   const scrollerRef = React.useRef<HTMLDivElement>(null);
@@ -156,7 +163,7 @@ function Carousel({
 
   return (
     <div className={cn("flex w-full flex-col gap-6", className)}>
-      {controlsPlacement === "overlay" ? controls : null}
+      {showControls && controlsPlacement === "overlay" ? controls : null}
       <div
         ref={scrollerRef}
         role="group"
@@ -174,7 +181,7 @@ function Carousel({
           </div>
         ))}
       </div>
-      {controlsPlacement === "below" ? controls : null}
+      {showControls && controlsPlacement === "below" ? controls : null}
     </div>
   );
 }

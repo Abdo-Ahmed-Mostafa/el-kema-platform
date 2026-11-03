@@ -42,8 +42,8 @@ export async function InstructorsSection() {
       </div>
       <Carousel
         label={t("heading")}
-        controlsPlacement="below"
-        itemClassName="w-full max-w-[410px]"
+        showControls={false}
+        itemClassName="w-[calc(100%-24px)] sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]"
       >
         {INSTRUCTORS.map(({ key, image }) => (
           <MediaInfoCard
