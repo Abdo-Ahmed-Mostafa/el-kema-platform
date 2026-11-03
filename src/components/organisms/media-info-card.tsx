@@ -82,7 +82,7 @@ const MediaInfoCard = React.forwardRef<HTMLElement, MediaInfoCardProps>(
         data-slot="media-info-card"
         aria-labelledby={headingId}
         className={cn(
-          "relative flex w-full flex-col gap-6 rounded-card-xl border-[1.5px] border-border bg-card p-4 text-start shadow-card",
+          "group relative flex w-full cursor-pointer flex-col gap-6 rounded-card-xl border-[1.5px] border-border bg-card p-4 text-start shadow-card transition-[color,border-color,box-shadow] hover:border-primary hover:shadow-card",
           className,
         )}
         {...props}
@@ -146,7 +146,7 @@ const MediaInfoCard = React.forwardRef<HTMLElement, MediaInfoCardProps>(
             asChild
             appearance="outline"
             variant="primary"
-            className="w-full"
+            className="w-full group-hover:border-primary-hover group-hover:bg-primary group-hover:text-primary-foreground"
           >
             <a href={href}>{ctaLabel}</a>
           </Button>
@@ -155,7 +155,7 @@ const MediaInfoCard = React.forwardRef<HTMLElement, MediaInfoCardProps>(
             type="button"
             appearance="outline"
             variant="primary"
-            className="w-full"
+            className="w-full group-hover:border-primary-hover group-hover:bg-primary group-hover:text-primary-foreground"
           >
             {ctaLabel}
           </Button>

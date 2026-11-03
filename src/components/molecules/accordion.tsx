@@ -116,7 +116,7 @@ function AccordionItem({
       data-slot="accordion-item"
       data-state={open ? "open" : "closed"}
       className={cn(
-        "overflow-hidden rounded-lg border border-border bg-card",
+        "overflow-hidden rounded-lg border border-border bg-card transition-colors data-[state=open]:border-primary",
         className,
       )}
       {...props}
@@ -130,7 +130,7 @@ function AccordionItem({
           aria-expanded={open}
           aria-controls={panelId}
           onClick={() => toggle(value)}
-          className="flex w-full items-center justify-between gap-4 px-4 py-4 text-start text-[20px] leading-8 font-medium text-foreground transition-colors outline-none hover:bg-primary-light focus-visible:ring-ring/50 focus-visible:ring-[3px] [&_svg]:size-5 [&_svg]:shrink-0 [&_svg]:text-primary"
+          className="flex w-full items-center justify-between gap-4 px-4 py-4 text-start text-[20px] leading-8 font-medium text-foreground transition-colors outline-none hover:bg-primary hover:text-primary-foreground focus-visible:ring-ring/50 focus-visible:ring-[3px] data-[state=open]:bg-primary data-[state=open]:text-primary-foreground [&_svg]:size-5 [&_svg]:shrink-0 [&_svg]:text-primary hover:[&_svg]:text-primary-foreground data-[state=open]:[&_svg]:text-primary-foreground"
         >
           {/* paragraph-lg (20/32) — not a token; arbitrary per figma-molecules.md */}
           <span>{title}</span>
@@ -148,7 +148,7 @@ function AccordionItem({
         hidden={!open}
         data-slot="accordion-content"
         data-state={open ? "open" : "closed"}
-        className="mt-1 border-t border-border px-4 pt-3 pb-5 text-sm leading-5 text-body"
+        className="border-t border-primary bg-muted p-6 text-sm leading-5 text-body"
       >
         {/* body: paragraph-xsm — #52525a maps to the --text-body token (themes in dark) */}
         {children}
