@@ -116,7 +116,7 @@ function AccordionItem({
       data-slot="accordion-item"
       data-state={open ? "open" : "closed"}
       className={cn(
-        "overflow-hidden rounded-lg border border-border bg-card transition-colors data-[state=open]:border-primary",
+        "overflow-hidden rounded-lg border border-border bg-card transition-colors data-[state=open]:border-primary-hover",
         className,
       )}
       {...props}
@@ -130,15 +130,24 @@ function AccordionItem({
           aria-expanded={open}
           aria-controls={panelId}
           onClick={() => toggle(value)}
-          className="flex w-full items-center justify-between gap-4 px-4 py-4 text-start text-[20px] leading-8 font-medium text-foreground transition-colors outline-none hover:bg-primary hover:text-primary-foreground focus-visible:ring-ring/50 focus-visible:ring-[3px] data-[state=open]:bg-primary data-[state=open]:text-primary-foreground [&_svg]:size-5 [&_svg]:shrink-0 [&_svg]:text-primary hover:[&_svg]:text-primary-foreground data-[state=open]:[&_svg]:text-primary-foreground"
+          className="group/trigger flex w-full items-center justify-between gap-4 px-4 py-4 text-start text-[20px] leading-8 font-medium text-foreground transition-colors outline-none hover:bg-primary hover:text-primary-foreground focus-visible:ring-ring/50 focus-visible:ring-[3px] data-[state=open]:text-primary"
         >
           {/* paragraph-lg (20/32) — not a token; arbitrary per figma-molecules.md */}
           <span>{title}</span>
-          <DownArrowIcon
+          {/* Chevron sits in a circular badge: Default subtle, Hover light badge
+              with navy chevron (656:7298), Open navy badge with inverse chevron
+              (656:7304). */}
+          <span
             aria-hidden
-            className="transition-transform duration-200 data-[state=open]:rotate-180"
             data-state={open ? "open" : "closed"}
-          />
+            className="flex size-8 shrink-0 items-center justify-center rounded-full text-primary transition-colors group-hover/trigger:bg-primary-foreground group-hover/trigger:text-primary data-[state=open]:bg-primary data-[state=open]:text-primary-foreground"
+          >
+            <DownArrowIcon
+              aria-hidden
+              className="size-5 shrink-0 transition-transform duration-200 data-[state=open]:rotate-180"
+              data-state={open ? "open" : "closed"}
+            />
+          </span>
         </button>
       </h3>
       <div
@@ -148,7 +157,7 @@ function AccordionItem({
         hidden={!open}
         data-slot="accordion-content"
         data-state={open ? "open" : "closed"}
-        className="border-t border-primary bg-muted p-6 text-sm leading-5 text-body"
+        className="border-t border-primary-hover bg-muted p-6 text-sm leading-5 text-body"
       >
         {/* body: paragraph-xsm — #52525a maps to the --text-body token (themes in dark) */}
         {children}
