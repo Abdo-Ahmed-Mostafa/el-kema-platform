@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 
 import { MediaInfoCard } from "@/components/organisms";
 import { Button } from "@/components/ui/button";
+import { Carousel } from "@/components/shared";
 import {
   StopwatchIcon,
   BookClosedIcon,
@@ -14,9 +15,12 @@ import { routes } from "@/config/routes";
 /**
  * Home section 2 — "اكتشف الدورات التي تناسبك".
  *
- * A heading block plus a responsive 3-column grid of `MediaInfoCard` organisms
- * rendered with a price row and a rating badge. Copy + the per-card cover image
- * come from the `home.homePage.courses` namespace.
+ * A heading block plus a horizontal `Carousel` of `MediaInfoCard` organisms
+ * (price row + rating badge) with prev/next controls beneath, matching the
+ * Figma "التالي" button, then the existing "اكتشف اكثر" view-all CTA. The cards
+ * stay server-rendered and are composed as children of the client carousel.
+ * Copy + the per-card cover image come from the `home.homePage.courses`
+ * namespace.
  */
 const COURSES = [
   { key: "chemistry", image: "/home/course-3.png" },
@@ -37,7 +41,11 @@ export async function CoursesSection() {
           {t("subheading")}
         </p>
       </div>
-      <div className="grid w-full gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <Carousel
+        label={t("heading")}
+        controlsPlacement="below"
+        itemClassName="w-full max-w-[410px]"
+      >
         {COURSES.map(({ key, image }) => (
           <MediaInfoCard
             key={key}
@@ -67,7 +75,7 @@ export async function CoursesSection() {
             ctaLabel={t("cta")}
           />
         ))}
-      </div>
+      </Carousel>
       <Button asChild appearance="ghost" variant="primary" size="lg">
         <Link href={routes.courses}>
           {t("viewAll")}

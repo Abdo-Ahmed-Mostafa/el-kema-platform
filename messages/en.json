@@ -11,7 +11,9 @@
     "toggleTheme": "Toggle theme",
     "switchLanguage": "Switch language",
     "openMenu": "Open menu",
-    "skipToContent": "Skip to content"
+    "skipToContent": "Skip to content",
+    "carouselPrevious": "Previous",
+    "carouselNext": "Next"
   },
   "error": {
     "title": "Something went wrong",

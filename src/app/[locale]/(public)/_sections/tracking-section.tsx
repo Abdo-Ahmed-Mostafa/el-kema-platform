@@ -1,17 +1,22 @@
 import { getTranslations } from "next-intl/server";
 
 import { ProgressTrackingCard } from "@/components/organisms";
+import { Carousel } from "@/components/shared";
 
 /**
  * Home section 1 — "تابع تقدّمك في رحلتك التعليمية".
  *
- * A thin server-component wrapper: a heading block plus a responsive row of
- * two equal-width `ProgressTrackingCard` organisms (navy / teal), all copy read
- * from the `home.homePage.tracking` namespace.
+ * A thin server-component wrapper: a heading block plus a horizontal carousel of
+ * three equal-width `ProgressTrackingCard` organisms (navy / teal / navy), all
+ * copy read from the `home.homePage.tracking` namespace. The cards stay
+ * server-rendered and are composed as children of the client `Carousel`, which
+ * owns the scroll-snap + prev/next interactivity. Each card keeps its Figma
+ * 628px width so three of them overflow the 1280px container and scroll.
  */
 const CARDS = [
   { key: "math", surface: "primary" as const },
   { key: "english", surface: "secondary" as const },
+  { key: "chemistry", surface: "primary" as const },
 ];
 
 export async function TrackingSection() {
@@ -27,7 +32,7 @@ export async function TrackingSection() {
           {t("subheading")}
         </p>
       </div>
-      <div className="grid w-full gap-6 md:grid-cols-2">
+      <Carousel label={t("heading")} itemClassName="w-full max-w-[628px]">
         {CARDS.map(({ key, surface }) => (
           <ProgressTrackingCard
             key={key}
@@ -44,7 +49,7 @@ export async function TrackingSection() {
             ctaLabel={t(`cards.${key}.cta`)}
           />
         ))}
-      </div>
+      </Carousel>
     </section>
   );
 }

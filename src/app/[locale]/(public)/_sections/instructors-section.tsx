@@ -2,6 +2,7 @@ import { getTranslations } from "next-intl/server";
 
 import { MediaInfoCard } from "@/components/organisms";
 import { Button } from "@/components/ui/button";
+import { Carousel } from "@/components/shared";
 import {
   LibraryIcon,
   BagIcon,
@@ -14,9 +15,11 @@ import { routes } from "@/config/routes";
 /**
  * Home section 3 — "تعلّم على يد نخبة من المدرّسين".
  *
- * A heading block plus a responsive 3-column grid of `MediaInfoCard` organisms
- * (rating badge, no price) followed by a centered transparent "اكتشف اكثر" CTA.
- * Copy + per-card cover image come from `home.homePage.instructors`.
+ * A heading block plus a horizontal `Carousel` of `MediaInfoCard` organisms
+ * (rating badge, no price) with prev/next controls beneath, matching the Figma
+ * "التالي" button, then the existing centered "اكتشف اكثر" CTA. The cards stay
+ * server-rendered and are composed as children of the client carousel. Copy +
+ * per-card cover image come from `home.homePage.instructors`.
  */
 const INSTRUCTORS = [
   { key: "omar", image: "/home/course-3.png" },
@@ -37,7 +40,11 @@ export async function InstructorsSection() {
           {t("subheading")}
         </p>
       </div>
-      <div className="grid w-full gap-6 md:grid-cols-2 lg:grid-cols-3">
+      <Carousel
+        label={t("heading")}
+        controlsPlacement="below"
+        itemClassName="w-full max-w-[410px]"
+      >
         {INSTRUCTORS.map(({ key, image }) => (
           <MediaInfoCard
             key={key}
@@ -65,7 +72,7 @@ export async function InstructorsSection() {
             ctaLabel={t("cta")}
           />
         ))}
-      </div>
+      </Carousel>
       <Button asChild appearance="ghost" variant="primary" size="lg">
         <Link href={routes.teachers}>
           {t("viewAll")}

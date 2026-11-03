@@ -11,7 +11,9 @@
     "toggleTheme": "تبديل السمة",
     "switchLanguage": "تغيير اللغة",
     "openMenu": "فتح القائمة",
-    "skipToContent": "تخطَّ إلى المحتوى"
+    "skipToContent": "تخطَّ إلى المحتوى",
+    "carouselPrevious": "السابق",
+    "carouselNext": "التالي"
   },
   "error": {
     "title": "حدث خطأ ما",
