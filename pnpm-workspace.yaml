@@ -1,4 +1,16 @@
+# Approve the native build scripts these deps ship so `pnpm install` runs them
+# instead of failing with ERR_PNPM_IGNORED_BUILDS.
+#
+# Two forms are declared on purpose so the config is honored across pnpm
+# versions (Vercel may run a newer pnpm than the pinned packageManager):
+#   - onlyBuiltDependencies: read by pnpm 10.x
+#   - allowBuilds (map):      read by pnpm 11+ (which removed onlyBuiltDependencies)
 onlyBuiltDependencies:
   - "@parcel/watcher"
   - "@swc/core"
   - esbuild
+
+allowBuilds:
+  "@parcel/watcher": true
+  "@swc/core": true
+  esbuild: true
